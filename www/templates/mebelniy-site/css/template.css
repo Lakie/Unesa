@@ -21,6 +21,21 @@ html {
 	height:100%;
 	margin-bottom:1px;
 }
+h1,h2,h3,h4 {
+	font-weight:bold;margin:1em 0 1em;
+}
+h1{
+	font-size:160%;
+}
+h2 {
+	font-size:140%;
+}
+h3 {
+	font-size:120%;
+}
+h4 {
+	font-size:110%;
+}
 a{
 	text-decoration:none;
 }
@@ -30,6 +45,9 @@ li {
 ul {
 	margin-left: 0;
 	padding-left: 0;
+}
+.clear-both{
+	clear: both;
 }
 .container {
 	margin: 0 auto;
@@ -130,7 +148,7 @@ ul {
 	margin:0;
 	height:36px;
 	line-height:36px;
-	color:#ffff; 
+	color: #fff;
 	background: none repeat scroll 0 0 #b19778;
 }
 #nav li li a, #nav li.active li a {
@@ -156,7 +174,7 @@ ul {
 	position: absolute; 
 	right:-25px;
 }
-.uk-panel{
+.clear-both{
 	clear:both;
 }
 .span6 {
@@ -164,27 +182,27 @@ ul {
 	*width: 50%;
 }
 .span9 {
-	width: 74%;
-	*width: 74%;
+	width: 73%;
+	*width: 75%;
 }
 .span12 {
-	width: 99.99999999%;
-	*width: 99.946808500638%;
+	width: 100%;
+	*width: 100%;
 }
 .span3 {
 		width: 25%;
 		*width: 25%;
 }
 #main-content{
-	margin: 10px 0;
 	background: #ffffff;
+	width: 100%;
 }
 .moduletable .uk-width-1-1 .uk-panel-body{
 	padding:0;
 }
 .moduletable .uk-accordion {
 	background: url("../images/style/modbg.png") repeat-x scroll 0 0 transparent;
-	margin: 0 10px 10px;
+	margin: 0 20px 10px 10px;
 	padding: 0 10px;
 }
 h3.akk-main {
@@ -202,12 +220,105 @@ h3.akk-main {
 }
 #main-left{
 	float:left;
-	padding: 15px 15px 0;
+	padding: 15px 0 0 15px;
 }
 #main-right{
 	float:right;
-	padding: 15px 15px 0;
+	padding: 15px 15px 0 0;
 }
 .content-container{
-	padding:10px 20px 20px;
+	padding: 1px 20px 20px;
+	margin-top: 10px;
+}
+.style_both{
+	margin-left: 25%;
+	margin-right: 25%;
+}
+.style_left{
+	margin-left: 27%;
+}
+.style_right{
+	margin-right: 25%;
+}
+a {
+	color: #644729;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+}
+.moduletable>.mod_fon{
+	background: url("../images/style/modbg.png") repeat-x scroll 0 0 transparent;
+	margin: 0 20px 10px 10px;
+	padding: 0 10px;
+}
+.rsform fieldset.formContainer{
+	border: 0  !important;
+}
+.formResponsive .formHorizontal .formControls {
+	margin: 0 !important;
+}
+
+.rsform-input-box{
+	width: 90%;
+}
+.rsform input, .rsform textarea {
+	color: #505050;
+	background-color: #ffffff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(192, 192, 192, 0.7) inset, 0px 0px 7px rgba(192, 192, 192, 0.7);
+	border: 1px solid #c0c0c0;
+	margin: 0 3px !important;
+	padding: 5px !important;
+	float: right;
+}
+.rsform textarea:hover, .rsform input:hover, .rsform input:focus, .rsform textarea:focus {
+	border: 1px solid #c0c0c0;
+	background-color: #ffffe0;
+}
+.rsform div.formControls {
+	margin: 0 0 10px 0;
+}
+.uk-accordion h3.uk-accordion-title, h3.uk-accordion-title span, h3.uk-accordion-title span span{
+	background: none;
+	display: block;
+	font-size: 13px;
+	font-weight: 700;
+	height: 30px;
+	line-height: 30px;
+	background-image: url(../images/style/style2.png);
+	cursor: pointer;
+	margin-bottom: 10px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	padding: 0 0 0 10px;
+}
+.uk-accordion h3.uk-accordion-title>span {
+	background-repeat: no-repeat;
+	background-position: 100% -60px;
+	padding: 0 10px 0 0;
+}
+.uk-accordion h3.uk-accordion-title span span {
+	background-repeat: repeat-x;
+	background-position: 0 -120px;
+	padding: 0 4px;
+}
+.uk-accordion h3.uk-accordion-title span span:hover, .uk-accordion h3.uk-active {
+	background-position:0 -150px;
+}
+.uk-accordion h3.uk-accordion-title span:hover, .uk-accordion h3.uk-active {
+	background-position:100% -90px;
+}
+.uk-accordion h3.uk-accordion-title:hover, .uk-accordion h3.uk-active {
+	background-position:0 -30px;
+}
+.uk-grid .uk-panel img{
+border: 1px groove #FF9326;
+}
+#content h1{
+	font-size: 200%;
+}
+#content ul{
+	margin-left: 15px;
 }

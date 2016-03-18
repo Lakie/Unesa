@@ -37,17 +37,23 @@ $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/tem
 JHtml::_('bootstrap.loadCss', false, $this->direction);
 
 // Adjusting content width
+$style_both='';
+$style_left='';
+$style_right='';
 if ($this->countModules('main-left') && $this->countModules('main-right'))
 {
 	$span = "span6";
+	$style_both = ' style_both';
 }
 elseif ($this->countModules('main-left') && !$this->countModules('main-right'))
 {
 	$span = "span9";
+	$style_left = ' style_left';
 }
 elseif (!$this->countModules('main-left') && $this->countModules('main-right'))
 {
 	$span = "span9";
+	$style_right = ' style_right';
 }
 else
 {
@@ -133,9 +139,7 @@ else
 					</div>
 					<!-- End Sidebar -->
 				<?php endif; ?>
-				<div id="content" role="main" class="<?php echo $span; ?>"
-				<?php if ($this->countModules('main-left')) : echo "style='margin-left: 26%;'"; endif; ?>
-				<?php if ($this->countModules('main-right')) : echo "style='margin-right: 26%;'"; endif; ?>>
+				<div id="content" role="main" class="<?php echo $span, $style_both, $style_left, $style_right ; ?>">
 					<!-- Begin Content -->
 					<div class="content-container">
 						<jdoc:include type="modules" name="main-content" style="xhtml" />
@@ -143,12 +147,13 @@ else
 						<jdoc:include type="component" />
 						<jdoc:include type="modules" name="main-content-2" style="none" />
 					</div>
+					<div class="clear-both"></div>
 					<!-- End Content -->
 				</div>
 				<?php if ($this->countModules('main-right')) : ?>
 					<div id="main-right" class="span3">
 						<!-- Begin Right Sidebar -->
-						<jdoc:include type="modules" name="main-right" style="well" />
+						<jdoc:include type="modules" name="main-right" style="none" />
 						<!-- End Right Sidebar -->
 					</div>
 				<?php endif; ?>
