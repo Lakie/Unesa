@@ -163,16 +163,18 @@ else
 	<!-- Footer -->
 	<footer class="footer" role="contentinfo">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<hr />
+			<?php if ($this->countModules('metrika')) : ?>
+				<div class = ya-metrika>
+					<jdoc:include type="modules" name="metrika" style="none" />
+				</div>
+			<?php endif; ?>
 			<jdoc:include type="modules" name="footer" style="none" />
-			<p class="pull-right">
-				<a href="#top" id="back-top">
-					<?php echo JText::_('TPL_PROTOSTAR_BACKTOTOP'); ?>
-				</a>
-			</p>
-			<p>
-				&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
-			</p>
+			<div class="custom">
+				<p class="copyright-footer">
+					&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
+				</p>
+				<p>&nbsp;</p>
+			</div>
 		</div>
 	</footer>
 	<jdoc:include type="modules" name="debug" style="none" />

@@ -255,6 +255,7 @@ a:hover {
 }
 .rsform fieldset.formContainer{
 	border: 0  !important;
+	margin-top: -2px;
 }
 .formResponsive .formHorizontal .formControls {
 	margin: 0 !important;
@@ -269,16 +270,13 @@ a:hover {
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(192, 192, 192, 0.7) inset, 0px 0px 7px rgba(192, 192, 192, 0.7);
 	border: 1px solid #c0c0c0;
-	margin: 0 3px !important;
+	margin: 0px -2px 14px !important;
 	padding: 5px !important;
 	float: right;
 }
 .rsform textarea:hover, .rsform input:hover, .rsform input:focus, .rsform textarea:focus {
 	border: 1px solid #c0c0c0;
 	background-color: #ffffe0;
-}
-.rsform div.formControls {
-	margin: 0 0 10px 0;
 }
 .uk-accordion h3.uk-accordion-title, h3.uk-accordion-title span, h3.uk-accordion-title span span{
 	background: none;
@@ -321,4 +319,35 @@ border: 1px groove #FF9326;
 }
 #content ul{
 	margin-left: 15px;
+}
+.rsform-block label{
+	display: none;
+}
+#jlvkgroup43872309{
+	margin-left: 10px;
+}
+.mod_fon ul{
+	margin: 0;
+}
+.moduletable{
+	margin-bottom: 10px;
+}
+.footer .container{
+	width: 100%;
+}
+.ya-metrika{
+	padding: 6px 0;
+	background: #fff;
+}
+.footer .custom{
+	background-image: url('/images/style/menu.png');
+	margin-bottom: 10px;
+}
+.footer .custom p{
+	margin: 0;
+	padding: 1em;
+	text-align: center;
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
 }

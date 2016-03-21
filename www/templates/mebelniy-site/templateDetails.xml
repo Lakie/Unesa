@@ -26,24 +26,16 @@
 	</files>
 	<positions>
 		<position>slider</position>
-		<position>debug</position>
 		<position>header-baner</position>
 		<position>search</position>
 		<position>nav-menu</position>
 		<position>main-content-2</position>
 		<position>main-content</position>
-		<position>position-4</position>
-		<position>position-5</position>
-		<position>position-6</position>
 		<position>main-right</position>
 		<position>main-left</position>
-		<position>position-9</position>
-		<position>position-10</position>
-		<position>position-11</position>
-		<position>position-12</position>
-		<position>position-13</position>
-		<position>position-14</position>
+		<position>metrika</position>
 		<position>footer</position>
+		<position>debug</position>
 	</positions>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_mebelniy-site.ini</language>
