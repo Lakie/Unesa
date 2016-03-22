@@ -224,7 +224,7 @@ h3.akk-main {
 }
 #main-right{
 	float:right;
-	padding: 15px 15px 0 0;
+	padding: 15px 5px 0 0;
 }
 .content-container{
 	padding: 1px 20px 20px;
@@ -270,9 +270,10 @@ a:hover {
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(192, 192, 192, 0.7) inset, 0px 0px 7px rgba(192, 192, 192, 0.7);
 	border: 1px solid #c0c0c0;
-	margin: 0px -2px 14px !important;
+	margin: 0px -6px 14px !important;
 	padding: 5px !important;
 	float: right;
+	width: 100%;
 }
 .rsform textarea:hover, .rsform input:hover, .rsform input:focus, .rsform textarea:focus {
 	border: 1px solid #c0c0c0;
@@ -340,7 +341,7 @@ border: 1px groove #FF9326;
 	background: #fff;
 }
 .footer .custom{
-	background-image: url('/images/style/menu.png');
+	background-image: url('../images/style/menu.png');
 	margin-bottom: 10px;
 }
 .footer .custom p{
@@ -350,4 +351,117 @@ border: 1px groove #FF9326;
 	color: #fff;
 	font-size: 11px;
 	font-weight: bold;
+}
+.bt-cs .next, .bt-cs .prev {
+	display: block !important;
+	width: 33px !important;
+	height: 14% !important;
+}
+.bt-cs a.prev {
+	background: url(../images/style/re-left.png) left center no-repeat !important;
+	left: 515px !important;
+}
+.bt-cs a.prev:hover {
+	background: url(../images/style/re-left-hover.png) left center no-repeat !important;
+}
+.bt-cs a.next {
+	background: url(../images/style/re-right.png) right center no-repeat !important;
+	right: 85px !important;
+}
+.bt-cs a.next:hover {
+	background: url(../images/style/re-right-hover.png) right center no-repeat !important;
+}
+.rsform-block-captcha-f2 img{
+	padding: 4px;
+	border: 1px solid #C0C0C0;
+	border-radius: 5px;
+	box-shadow: 0 0 7px rgba(192, 192, 192, 0.698);
+	float: left;
+	margin-bottom: 5px;
+}
+input.rsform-captcha-box{
+	width: 70% !important;
+	float: left;
+}
+.row a img{
+	margin: 1px 0 0 5px;
+	border: 0;
+	box-shadow: none;
+}
+.rsform-block select{
+	width: 102% !important;
+	opacity: 1;
+	height: 28px;
+	cursor: pointer;
+	border-radius: 5px;
+	margin-left: -2px;
+	margin-bottom: 15px;
+	box-shadow: 0 0 10px rgba(192, 192, 192, 0.7) inset, 0px 0px 7px rgba(192, 192, 192, 0.7);
+}
+#Submit{
+	width: 60%;
+}
+.rsform label.file-label{
+	display: block;
+	font-size: 120%;
+	letter-spacing: 0.3px;
+}
+.rsform-block-file-f2 .formControls{
+	width: 120px;
+	height: 28px;
+	overflow: hidden;
+	border-radius: 15px;
+	margin-bottom: 15px;
+	float: right;
+	position: relative;
+	border: 1px solid #C0C0C0;
+	box-shadow: 0 0 7px rgba(192, 192, 192, 0.698);
+	background-image: url(../images/style/button-background.png);
+}
+.rsform-block-file-f2 .formControls:hover{
+	background-position: 0 -28px;
+}
+.rsform-block-file-f2 .formControls input{
+	width: 1000px;
+	padding: 0 !important;
+	float: right;
+	cursor: pointer;
+	line-height: 28px;
+	opacity: 0;
+}
+.rsform-block-file-f2 .formControls span{
+	position: absolute;
+	left: 18%;
+	top: 24%;
+	font-size: 13px;
+}
+.col-sm-3 {
+	float: left;
+	padding-bottom: 10px;
+	margin-top: -10px;
+	font-size: 120%;
+}
+.rsform-block-file-f2 .col-sm-3{
+	padding:10px 0 0;
+}
+.formErrorMsg, .formTrueMsg, .rsform>form>div>p {
+	font-weight: bold;
+	margin: 0 0 10px;
+	padding: 16px 32px;
+	font-size: 130%;
+	color: #505050;
+	box-shadow: 0 0 10px rgba(211, 206, 56, 0.7) inset, 0px 0px 7px rgba(211, 206, 56, 0.7);
+	border: 1px solid #d3ce38;
+	border-radius: 5px;
+	background: url("../images/style/message-background.png") repeat-x scroll 0 0 #FFFFFF;
+}
+.formControls .rsform-error {
+	box-shadow: 0 0 10px rgba(192, 80, 80, 0.7) inset, 0px 0px 7px rgba(192, 80, 80, 0.7);
+	border: 1px solid #c05050;
+}
+.rsform-block-header{
+	padding: 2px 0;
+	margin: 0 -6px 10px -8px;
+	font-size: 130%;
+	line-height: 1.4;
 }

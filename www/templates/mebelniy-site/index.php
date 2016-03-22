@@ -131,13 +131,22 @@ else
 			<?php endif; ?>
 			<div id="main-content">
 				<?php if ($this->countModules('main-left')) : ?>
-					<!-- Begin Sidebar -->
 					<div id="main-left" class="span3">
+						<!-- Begin Left Sidebar -->
 						<div class="sidebar-nav">
 							<jdoc:include type="modules" name="main-left" style="xhtml" />
 						</div>
+						<!-- End Left Sidebar -->
 					</div>
-					<!-- End Sidebar -->
+				<?php endif; ?>
+				<?php if ($this->countModules('main-right')) : ?>
+					<div id="main-right" class="span3">
+						<!-- Begin Right Sidebar -->
+						<div class="sidebar-nav">
+							<jdoc:include type="modules" name="main-right" style="xhtml" />
+						</div>
+						<!-- End Right Sidebar -->
+					</div>
 				<?php endif; ?>
 				<div id="content" role="main" class="<?php echo $span, $style_both, $style_left, $style_right ; ?>">
 					<!-- Begin Content -->
@@ -147,16 +156,9 @@ else
 						<jdoc:include type="component" />
 						<jdoc:include type="modules" name="main-content-2" style="none" />
 					</div>
-					<div class="clear-both"></div>
 					<!-- End Content -->
 				</div>
-				<?php if ($this->countModules('main-right')) : ?>
-					<div id="main-right" class="span3">
-						<!-- Begin Right Sidebar -->
-						<jdoc:include type="modules" name="main-right" style="none" />
-						<!-- End Right Sidebar -->
-					</div>
-				<?php endif; ?>
+					<div class="clear-both"></div>
 			</div>
 		</div>
 	</div>

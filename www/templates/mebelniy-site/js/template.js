@@ -6,6 +6,12 @@
  * @since       3.2
  */
 
+if (window.MooTools) {
+	Element.prototype.hide = function() {
+		return;
+	};
+}
+
 (function($)
 {
 	$(document).ready(function()
