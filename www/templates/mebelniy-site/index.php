@@ -93,7 +93,7 @@ else
 	echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
 	<!-- Body -->
-<div class="topground"></div>
+	<div class="topground"></div>
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 			<!-- Header -->
@@ -121,8 +121,8 @@ else
 						<div class = "nav-menu">
 							<jdoc:include type="modules" name="nav-menu" style="none" />
 						</div>
-						<div class = "levy"></div>
-						<div class = "pravy"></div>
+						<div class = "nav_menu_left_img"></div>
+						<div class = "nav_menu_right_img"></div>
 					</div>
 				</nav>
 			<?php endif; ?>
