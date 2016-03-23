@@ -465,3 +465,6 @@ input.rsform-captcha-box{
 	font-size: 130%;
 	line-height: 1.4;
 }
+.itemBackToTop .k2Anchor{
+	display: none;
+}
