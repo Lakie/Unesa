@@ -328,7 +328,7 @@ border: 1px groove #FF9326;
 	margin: 0;
 }
 .moduletable{
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 .footer .container{
 	width: 100%;
@@ -445,7 +445,7 @@ input.rsform-captcha-box{
 .rsform-block-file-f2 .col-sm-3{
 	padding:10px 0 0;
 }
-.formErrorMsg, .formTrueMsg, .rsform>form>div>p {
+.formErrorMsg, .formTrueMsg, .rsform>form>div>p, .rsform>p {
 	font-weight: bold;
 	margin: 0 0 10px;
 	padding: 16px 32px;
@@ -461,8 +461,8 @@ input.rsform-captcha-box{
 	border: 1px solid #c05050;
 }
 .rsform-block-header{
-	padding: 2px 0;
-	margin: 0 -6px 10px -8px;
+	padding: 0px 0 10px;
+	margin: 0 -6px 11px -9px;
 	font-size: 130%;
 	line-height: 1.4;
 }
@@ -481,7 +481,7 @@ input.rsform-captcha-box{
 	top: 65% !important;
 }
 .body{
-	min-height: 89%;
+	min-height: 83%;
 	height: auto;
 }
 footer .container{
@@ -533,6 +533,7 @@ select {
 }
 .rsform-block .formControls{
 	position: relative;
+	height: 100%;
 }
 .rsform-select-box{
 	width: 100% !important;
@@ -540,7 +541,7 @@ select {
 	position: absolute;
 	height: 28px;
 	cursor: pointer;
-	top: 124px;
+	top: 4px;
 }
 .select-fon {
 	background: url("../images/style/select-background.png") repeat-x;
@@ -570,4 +571,34 @@ select {
 }
 .rsform-block-text-f2{
 	margin-top: 30px;
+}
+.rsform-block {
+	height: 30px;
+	margin-bottom: 10px;
+}
+.rsform-block-text-f2{
+	height:90px;
+}
+.rsform-block-file-f2 .formControls{
+	height:28px;
+}
+.rsform-block-select{
+	margin-bottom: 30px;
+}
+.rsform-block-mebel-f3{
+	margin-top: 20px;
+}
+ul.mod_fon{
+	min-height: 30px;
+	font-size: 130%;
+	text-align: center;
+}
+ul.mod_fon a{
+	padding-top: 5px;
+	display: block;
+}
+.moduletable .ymaps{
+	float: left;
+	width: 98%;
+	padding: 0 15px 25px;
 }

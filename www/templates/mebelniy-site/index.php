@@ -151,9 +151,9 @@ else
 				<div id="content" role="main" class="<?php echo $span, $style_both, $style_left, $style_right ; ?>">
 					<!-- Begin Content -->
 					<div class="content-container">
-						<jdoc:include type="modules" name="main-content" style="xhtml" />
 						<jdoc:include type="message" />
 						<jdoc:include type="component" />
+						<jdoc:include type="modules" name="main-content" style="xhtml" />
 						<jdoc:include type="modules" name="main-content-2" style="none" />
 					</div>
 					<!-- End Content -->
