@@ -312,9 +312,6 @@ a:hover {
 .uk-grid .uk-panel img{
 border: 1px groove #FF9326;
 }
-#content h1{
-	font-size: 200%;
-}
 #content ul{
 	margin-left: 15px;
 }
@@ -601,4 +598,7 @@ ul.mod_fon a{
 	float: left;
 	width: 98%;
 	padding: 0 15px 25px;
+}
+.content-container #k2Container .itemBody{
+	font-size: 130%;
 }
