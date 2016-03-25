@@ -1,9 +1,9 @@
 <?php
 /**
- * @version     2.6.x
+ * @version     2.7.x
  * @package     K2
  * @author      JoomlaWorks http://www.joomlaworks.net
- * @copyright   Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.
+ * @copyright   Copyright (c) 2006 - 2016 JoomlaWorks Ltd. All rights reserved.
  * @license     GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
@@ -106,7 +106,7 @@ class K2ModelItem extends K2Model
 		}
 		else
 		{
-			$row->ordering = $row->getNextOrder("catid = {$row->catid} AND trash = 0");
+			$row->ordering = $row->getNextOrder("catid = ".(int)$row->catid." AND trash = 0");
 			if ($row->featured)
 				$row->featured_ordering = $row->getNextOrder("featured = 1 AND trash = 0", 'featured_ordering');
 		}
@@ -259,7 +259,7 @@ class K2ModelItem extends K2Model
 
 		if (!$params->get('disableCompactOrdering'))
 		{
-			$row->reorder("catid = {$row->catid} AND trash = 0");
+			$row->reorder("catid = ".(int)$row->catid." AND trash = 0");
 		}
 		if ($row->featured && !$params->get('disableCompactOrdering'))
 		{
@@ -287,10 +287,10 @@ class K2ModelItem extends K2Model
 
 			$handle = new Upload($image);
 			$handle->allowed = array('image/*');
+			$handle->forbidden = array('image/tiff');
 
-			if ($handle->uploaded)
+			if ($handle->file_is_image && $handle->uploaded)
 			{
-
 				//Image params
 				$category = JTable::getInstance('K2Category', 'Table');
 				$category->load($row->catid);
@@ -432,8 +432,7 @@ class K2ModelItem extends K2Model
 			}
 			else
 			{
-				$mainframe->enqueueMessage($handle->error, 'error');
-				$mainframe->redirect('index.php?option=com_k2&view=items');
+				$mainframe->enqueueMessage(JText::_('K2_IMAGE_WAS_NOT_UPLOADED'), 'notice');
 			}
 
 		}
@@ -907,9 +906,7 @@ class K2ModelItem extends K2Model
 
 		}
 
-		$query = "UPDATE #__k2_items SET 
-        video_caption = ".$db->Quote($row->video_caption).", 
-        video_credits = ".$db->Quote($row->video_credits).", ";
+		$query = "UPDATE #__k2_items SET video_caption = ".$db->Quote($row->video_caption).", video_credits = ".$db->Quote($row->video_credits).", ";
 
 		if (!is_null($row->video))
 		{
@@ -919,10 +916,7 @@ class K2ModelItem extends K2Model
 		{
 			$query .= " gallery = ".$db->Quote($row->gallery).", ";
 		}
-		$query .= " extra_fields = ".$db->Quote($row->extra_fields).", 
-        extra_fields_search = ".$db->Quote($row->extra_fields_search)." ,
-        published = ".$db->Quote($row->published)." 
-        WHERE id = ".$row->id;
+		$query .= " extra_fields = ".$db->Quote($row->extra_fields).", extra_fields_search = ".$db->Quote($row->extra_fields_search)." , published = ".$db->Quote($row->published)." WHERE id = ".$row->id;
 		$db->setQuery($query);
 
 		if (!$db->query())
@@ -1001,6 +995,15 @@ class K2ModelItem extends K2Model
 			$row->load($cid);
 			$row->checkin();
 		}
+    else
+    {
+      // Clean up SigPro
+      $sigProFolder = JRequest::getCmd('sigProFolder');
+      if($sigProFolder && !is_numeric($sigProFolder) && JFolder::exists(JPATH_SITE.'/media/k2/galleries/'.$sigProFolder))
+      {
+        JFolder::delete(JPATH_SITE.'/media/k2/galleries/'.$sigProFolder);
+      }
+    }
 
 		$mainframe->redirect('index.php?option=com_k2&view=items');
 	}
@@ -1223,10 +1226,7 @@ class K2ModelItem extends K2Model
 
 		$db = JFactory::getDBO();
 		$itemID = (int)$itemID;
-		$query = "SELECT tags.*
-        FROM #__k2_tags AS tags 
-        JOIN #__k2_tags_xref AS xref ON tags.id = xref.tagID 
-        WHERE xref.itemID = ".(int)$itemID." ORDER BY xref.id ASC";
+		$query = "SELECT tags.* FROM #__k2_tags AS tags JOIN #__k2_tags_xref AS xref ON tags.id = xref.tagID WHERE xref.itemID = ".(int)$itemID." ORDER BY xref.id ASC";
 		$db->setQuery($query);
 		$rows = $db->loadObjectList();
 		return $rows;

@@ -1,10 +1,10 @@
 <?php
 /**
- * @version		2.6.x
- * @package		K2
- * @author		JoomlaWorks http://www.joomlaworks.net
- * @copyright	Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ * @version    2.7.x
+ * @package    K2
+ * @author     JoomlaWorks http://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2016 JoomlaWorks Ltd. All rights reserved.
+ * @license    GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
 // no direct access
@@ -14,11 +14,6 @@ jimport('joomla.plugin.plugin');
 
 class plgSystemK2 extends JPlugin
 {
-
-	function plgSystemK2(&$subject, $config)
-	{
-		parent::__construct($subject, $config);
-	}
 
 	function onAfterRoute()
 	{
@@ -42,20 +37,20 @@ class plgSystemK2 extends JPlugin
 			return;
 		}
 
-		// Joomla! modal trigger
-		if ( !$user->guest || (JRequest::getCmd('option') == 'com_k2' && JRequest::getCmd('view') == 'item') || defined('K2_JOOMLA_MODAL_REQUIRED') ){
-			JHTML::_('behavior.modal');
-		}
+		$document = JFactory::getDocument();
 
 		$params = JComponentHelper::getParams('com_k2');
-
-		$document = JFactory::getDocument();
 
 		// jQuery and K2 JS loading
 		K2HelperHTML::loadjQuery();
 
-		$document->addScript(JURI::root(true).'/components/com_k2/js/k2.js?v2.6.9&amp;sitepath='.JURI::root(true).'/');
-		//$document->addScriptDeclaration("var K2SitePath = '".JURI::root(true)."/';");
+		// Joomla! modal trigger
+		if ( !$user->guest || (JRequest::getCmd('option') == 'com_k2' && JRequest::getCmd('view') == 'item') || defined('K2_JOOMLA_MODAL_REQUIRED') ){
+			$document->addScript(JUri::root(true).'/media/k2/assets/js/jquery.magnific-popup.min.js?v2.7.0');
+			$document->addStyleSheet(JUri::root(true).'/media/k2/assets/css/magnific-popup.css?v2.7.0');
+		}
+
+		$document->addScript(JURI::root(true).'/media/k2/assets/js/k2.frontend.js?v2.7.0&amp;sitepath='.JURI::root(true).'/');
 
 		if (JRequest::getCmd('task') == 'search' && $params->get('googleSearch'))
 		{
@@ -68,9 +63,7 @@ class plgSystemK2 extends JPlugin
 			}
 			$document->addScript('http://www.google.com/jsapi');
 			$js = '
-			//<![CDATA[
 			google.load("search", "1", {"language" : "'.$lang.'"});
-
 			function OnLoad(){
 				var searchControl = new google.search.SearchControl();
 				var siteSearch = new google.search.WebSearch();
@@ -85,9 +78,7 @@ class plgSystemK2 extends JPlugin
 				searchControl.draw(document.getElementById("'.$googleSearchContainerID.'"));
 				searchControl.execute("'.JRequest::getString('searchword').'");
 			}
-
 			google.setOnLoadCallback(OnLoad);
-			//]]>
  			';
 			$document->addScriptDeclaration($js);
 		}
@@ -98,19 +89,25 @@ class plgSystemK2 extends JPlugin
 
 			jimport('joomla.filesystem.file');
 
+			// k2.fonts.css
+			if (JFile::exists(JPATH_SITE.DS.'templates'.DS.$mainframe->getTemplate().DS.'css'.DS.'k2.fonts.css'))
+				$document->addStyleSheet(JURI::root(true).'/templates/'.$mainframe->getTemplate().'/css/k2.fonts.css?v2.7.0');
+			else
+				$document->addStyleSheet(JURI::root(true).'/media/k2/assets/css/k2.fonts.css?v2.7.0');
+
 			// k2.css
 			if (JFile::exists(JPATH_SITE.DS.'templates'.DS.$mainframe->getTemplate().DS.'css'.DS.'k2.css'))
-				$document->addStyleSheet(JURI::root(true).'/templates/'.$mainframe->getTemplate().'/css/k2.css');
+				$document->addStyleSheet(JURI::root(true).'/templates/'.$mainframe->getTemplate().'/css/k2.css?v2.7.0');
 			else
-				$document->addStyleSheet(JURI::root(true).'/components/com_k2/css/k2.css');
+				$document->addStyleSheet(JURI::root(true).'/components/com_k2/css/k2.css?v2.7.0');
 
 			// k2.print.css
 			if (JRequest::getInt('print') == 1)
 			{
 				if (JFile::exists(JPATH_SITE.DS.'templates'.DS.$mainframe->getTemplate().DS.'css'.DS.'k2.print.css'))
-					$document->addStyleSheet(JURI::root(true).'/templates/'.$mainframe->getTemplate().'/css/k2.print.css', 'text/css', 'print');
+					$document->addStyleSheet(JURI::root(true).'/templates/'.$mainframe->getTemplate().'/css/k2.print.css?v2.7.0', 'text/css', 'print');
 				else
-					$document->addStyleSheet(JURI::root(true).'/components/com_k2/css/k2.print.css', 'text/css', 'print');
+					$document->addStyleSheet(JURI::root(true).'/components/com_k2/css/k2.print.css?v2.7.0', 'text/css', 'print');
 			}
 
 		}
@@ -150,18 +147,29 @@ class plgSystemK2 extends JPlugin
 			if ($params->get('recaptchaOnRegistration') && $params->get('recaptcha_public_key'))
 			{
 				$document = JFactory::getDocument();
-				$document->addScript('https://www.google.com/recaptcha/api/js/recaptcha_ajax.js');
-				$js = '
-				function showRecaptcha(){
-					Recaptcha.create("'.$params->get('recaptcha_public_key').'", "recaptcha", {
-						theme: "'.$params->get('recaptcha_theme', 'clean').'"
-					});
+				if($params->get('recaptchaV2')) {
+					$document->addScript('https://www.google.com/recaptcha/api.js?onload=onK2RecaptchaLoaded&render=explicit');
+					$js = 'function onK2RecaptchaLoaded(){grecaptcha.render("recaptcha", {"sitekey" : "'.$params->get('recaptcha_public_key').'"});}';
+					$document->addScriptDeclaration($js);
+					$recaptchaClass = 'k2-recaptcha-v2';
 				}
-				$K2(document).ready(function() {
-					showRecaptcha();
-				});
-				';
-				$document->addScriptDeclaration($js);
+				else
+				{
+					$document->addScript('https://www.google.com/recaptcha/api/js/recaptcha_ajax.js');
+					$js = '
+					function showRecaptcha(){
+						Recaptcha.create("'.$params->get('recaptcha_public_key').'", "recaptcha", {
+							theme: "'.$params->get('recaptcha_theme', 'clean').'"
+						});
+					}
+					$K2(document).ready(function() {
+						showRecaptcha();
+					});
+					';
+					$document->addScriptDeclaration($js);
+					$recaptchaClass = 'k2-recaptcha-v1';
+				}
+
 			}
 
 			if (!$user->guest)
@@ -206,6 +214,7 @@ class plgSystemK2 extends JPlugin
 
 			$view->assignRef('lists', $lists);
 			$view->assignRef('K2Params', $params);
+			$view->assignRef('recaptchaClass', $recaptchaClass);
 
 			JPluginHelper::importPlugin('k2');
 			$dispatcher = JDispatcher::getInstance();
@@ -279,7 +288,7 @@ class plgSystemK2 extends JPlugin
 			/*
 			// TO DO - We open the profile editing page in a modal, so let's define some CSS
 			$document = JFactory::getDocument();
-			$document->addStyleSheet(JURI::root(true).'/media/k2/assets/css/k2.frontend.css?v=2.6.9');
+			$document->addStyleSheet(JURI::root(true).'/media/k2/assets/css/k2.frontend.css?v=2.7.0');
 			$document->addStyleSheet(JURI::root(true).'/templates/system/css/general.css');
 			$document->addStyleSheet(JURI::root(true).'/templates/system/css/system.css');
 			if(K2_JVERSION != '15') {
@@ -433,21 +442,9 @@ class plgSystemK2 extends JPlugin
 
 		// Community Builder integration
 		$componentParams = JComponentHelper::getParams('com_k2');
-		if ($componentParams->get('cbIntegration') && JFile::exists(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_comprofiler'.DS.'plugin.foundation.php'))
-		{
-			define('K2_CB', true);
-			global $_CB_framework;
-			require_once (JPATH_ADMINISTRATOR.DS.'components'.DS.'com_comprofiler'.DS.'plugin.foundation.php');
-			cbimport('cb.html');
-			cbimport('language.front');
-		}
-		else
-		{
-			define('K2_CB', false);
-		}
 
 		// Define the default Itemid for users and tags. Defined here instead of the K2HelperRoute for performance reasons.
-		// UPDATE : Removed in K2 2.6.9. All K2 links without Itemid now use the anyK2Link defined in the router helper.
+		// UPDATE : Removed. All K2 links without Itemid now use the anyK2Link defined in the router helper.
 		// define('K2_USERS_ITEMID', $componentParams->get('defaultUsersItemid'));
 		// define('K2_TAGS_ITEMID', $componentParams->get('defaultTagsItemid'));
 
@@ -474,6 +471,7 @@ class plgSystemK2 extends JPlugin
 				define('K2_JF_ID', 'lang_id');
 			}
 		}
+
 		/*
 		if(JRequest::getCmd('option')=='com_k2' && JRequest::getCmd('task')=='save' && !$mainframe->isAdmin()){
 			$dispatcher = JDispatcher::getInstance();
@@ -485,8 +483,7 @@ class plgSystemK2 extends JPlugin
 		}
 		*/
 
-		// Use K2 to make Joomla! Varnish-friendly
-		// For more checkout: https://snipt.net/fevangelou/the-perfect-varnish-configuration-for-joomla-websites/
+		// Thank you K2 for making Joomla reverse caching proxy friendly :)
 		$user = JFactory::getUser();
 		if (!$user->guest)
 		{
@@ -497,14 +494,25 @@ class plgSystemK2 extends JPlugin
 			JResponse::setHeader('X-Logged-In', 'False', true);
 		}
 
+		JResponse::setHeader('X-Content-Powered-By', 'K2 v2.7.0 (by JoomlaWorks)', true);
+
 		if (!$mainframe->isAdmin())
 		{
 			return;
 		}
 
-		$option = JRequest::getCmd('option');
-		$task = JRequest::getCmd('task');
-		$type = JRequest::getCmd('catid');
+		if ((int)K2_JVERSION < 25) {
+
+			$option = JRequest::getCmd('option');
+			$task = JRequest::getCmd('task');
+			$type = JRequest::getCmd('catid');
+
+		} else {
+
+			$option = JFactory::getApplication()->input->get('option');
+			$task = JFactory::getApplication()->input->get('task');
+			$type =  JRequest::getCmd('catid');
+		}
 
 		if ($option != 'com_joomfish')
 			return;
@@ -675,7 +683,7 @@ class plgSystemK2 extends JPlugin
 
 			// *** Embedded CSS Snippet ***
 			$document->addCustomTag('
-			<style type="text/css" media="all">
+			<style type="text/css">
 				#K2ExtraFields { color:#000; font-size:11px; padding:6px 2px 4px 4px; text-align:left; }
 				#K2ExtraFields h1 { font-size:16px; height:25px; }
 				#K2ExtraFields h2 { font-size:14px; }
@@ -846,30 +854,53 @@ class plgSystemK2 extends JPlugin
 
 	function onAfterRender()
 	{
-		$response = JResponse::getBody();
-		$searches = array(
-			'<meta name="og:url"',
-			'<meta name="og:title"',
-			'<meta name="og:type"',
-			'<meta name="og:image"',
-			'<meta name="og:description"'
-		);
-		$replacements = array(
-			'<meta property="og:url"',
-			'<meta property="og:title"',
-			'<meta property="og:type"',
-			'<meta property="og:image"',
-			'<meta property="og:description"'
-		);
-		if (JString::strpos($response, 'prefix="og: http://ogp.me/ns#"') === false)
+		$application = JFactory::getApplication();
+		$params = JComponentHelper::getParams('com_k2');
+		if($application->isSite() && $params->get('facebookMetatags', 1))
 		{
-			$searches[] = '<html ';
-			$searches[] = '<html>';
-			$replacements[] = '<html prefix="og: http://ogp.me/ns#" ';
-			$replacements[] = '<html prefix="og: http://ogp.me/ns#">';
+			$response = JResponse::getBody();
+			$searches = array(
+				'<meta name="og:url"',
+				'<meta name="og:title"',
+				'<meta name="og:type"',
+				'<meta name="og:image"',
+				'<meta name="og:description"'
+			);
+			$replacements = array(
+				'<meta property="og:url"',
+				'<meta property="og:title"',
+				'<meta property="og:type"',
+				'<meta property="og:image"',
+				'<meta property="og:description"'
+			);
+			if (JString::strpos($response, 'prefix="og: http://ogp.me/ns#"') === false)
+			{
+				$searches[] = '<html ';
+				$searches[] = '<html>';
+				$replacements[] = '<html prefix="og: http://ogp.me/ns#" ';
+				$replacements[] = '<html prefix="og: http://ogp.me/ns#">';
+			}
+			$response = JString::str_ireplace($searches, $replacements, $response);
+			JResponse::setBody($response);
 		}
-		$response = JString::str_ireplace($searches, $replacements, $response);
-		JResponse::setBody($response);
+		if($application->isAdmin() && $params->get('gatherStatistics', 1))
+		{
+			$option = JRequest::getCmd('option');
+			$view = JRequest::getCmd('view');
+			$views = array('items', 'categories', 'tags', 'comments', 'users', 'usergroups', 'extrafields', 'extrafieldsgroups', '');
+			if($option == 'com_k2' && in_array($view, $views))
+			{
+				require_once JPATH_ADMINISTRATOR.'/components/com_k2/helpers/stats.php';
+				if(K2HelperStats::shouldLog())
+				{
+					$response = JResponse::getBody();
+					$response = JString::str_ireplace('</body>', K2HelperStats::getScripts().'</body>', $response);
+					JResponse::setBody($response);
+				}
+			}
+
+		}
+
 	}
 
 	function getSearchValue($id, $currentValue)
@@ -956,7 +987,7 @@ class plgSystemK2 extends JPlugin
 		switch ($extraField->type)
 		{
 			case 'textfield' :
-				$output = '<div><strong>'.$extraField->name.'</strong><br /><input type="text" disabled="disabled" name="OriginalK2ExtraField_'.$extraField->id.'" value="'.$active.'"/></div><br /><br />';
+				$output = '<div><strong>'.$extraField->name.'</strong><br /><input type="text" disabled="disabled" name="OriginalK2ExtraField_'.$extraField->id.'" value="'.$active.'" /></div><br /><br />';
 				break;
 
 			case 'textarea' :
@@ -964,9 +995,7 @@ class plgSystemK2 extends JPlugin
 				break;
 
 			case 'link' :
-				$output = '<div><strong>'.$extraField->name.'</strong><br />';
-				$output .= '&nbsp;<input disabled="disabled"	type="text" name="OriginalK2ExtraField_'.$extraField->id.'[]" value="'.$active[0].'"/><br />';
-				$output .= '<br /><br /></div>';
+				$output = '<div><strong>'.$extraField->name.'</strong><br /><input disabled="disabled" type="text" name="OriginalK2ExtraField_'.$extraField->id.'[]" value="'.$active[0].'" /></div><br /><br />';
 				break;
 		}
 
@@ -1042,7 +1071,7 @@ class plgSystemK2 extends JPlugin
 		{
 
 			case 'textfield' :
-				$output = '<div><strong>'.$extraField->name.'</strong><br /><input type="text" name="K2ExtraField_'.$extraField->id.'" value="'.$active.'"/></div><br /><br />';
+				$output = '<div><strong>'.$extraField->name.'</strong><br /><input type="text" name="K2ExtraField_'.$extraField->id.'" value="'.$active.'" /></div><br /><br />';
 				break;
 
 			case 'textarea' :
@@ -1050,23 +1079,19 @@ class plgSystemK2 extends JPlugin
 				break;
 
 			case 'select' :
-				$output = '<div style="display:none">'.JHTML::_('select.genericlist', $defaultValues, 'K2ExtraField_'.$extraField->id, '', 'value', 'name', $active).'</div>';
+				$output = '<div style="display:none;">'.JHTML::_('select.genericlist', $defaultValues, 'K2ExtraField_'.$extraField->id, '', 'value', 'name', $active).'</div>';
 				break;
 
 			case 'multipleSelect' :
-				$output = '<div style="display:none">'.JHTML::_('select.genericlist', $defaultValues, 'K2ExtraField_'.$extraField->id.'[]', 'multiple="multiple"', 'value', 'name', $active).'</div>';
+				$output = '<div style="display:none;">'.JHTML::_('select.genericlist', $defaultValues, 'K2ExtraField_'.$extraField->id.'[]', 'multiple="multiple"', 'value', 'name', $active).'</div>';
 				break;
 
 			case 'radio' :
-				$output = '<div style="display:none">'.JHTML::_('select.radiolist', $defaultValues, 'K2ExtraField_'.$extraField->id, '', 'value', 'name', $active).'</div>';
+				$output = '<div style="display:none;">'.JHTML::_('select.radiolist', $defaultValues, 'K2ExtraField_'.$extraField->id, '', 'value', 'name', $active).'</div>';
 				break;
 
 			case 'link' :
-				$output = '<div><strong>'.$extraField->name.'</strong><br />';
-				$output .= '<input type="text" name="K2ExtraField_'.$extraField->id.'[]" value="'.$active[0].'"/><br />';
-				$output .= '<input type="hidden" name="K2ExtraField_'.$extraField->id.'[]" value="'.$active[1].'"/><br />';
-				$output .= '<input type="hidden" name="K2ExtraField_'.$extraField->id.'[]" value="'.$active[2].'"/><br />';
-				$output .= '<br /><br /></div>';
+				$output = '<div><strong>'.$extraField->name.'</strong><br /><input type="text" name="K2ExtraField_'.$extraField->id.'[]" value="'.$active[0].'" /><br /><input type="hidden" name="K2ExtraField_'.$extraField->id.'[]" value="'.$active[1].'" /><br /><input type="hidden" name="K2ExtraField_'.$extraField->id.'[]" value="'.$active[2].'" /></div><br /><br />';
 				break;
 		}
 

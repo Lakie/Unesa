@@ -1,10 +1,10 @@
 <?php
 /**
- * @version		2.6.x
- * @package		K2
- * @author		JoomlaWorks http://www.joomlaworks.net
- * @copyright	Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ * @version    2.7.x
+ * @package    K2
+ * @author     JoomlaWorks http://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2016 JoomlaWorks Ltd. All rights reserved.
+ * @license    GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
 // no direct access
@@ -54,7 +54,7 @@ class K2ModelCategories extends K2Model
         }
         if ($language)
         {
-            $query .= " AND (c.language = ".$db->Quote($language)." OR c.language = '*')";
+            $query .= " AND c.language = ".$db->Quote($language);
         }
 
         if ($filter_category)
@@ -100,6 +100,10 @@ class K2ModelCategories extends K2Model
             {
                 $db->setQuery('SELECT parent FROM #__k2_categories WHERE id = '.$filter_category);
                 $root = $db->loadResult();
+            }
+            else if($language)
+            {
+            	$root = $categories[0]->parent;
             }
             else
             {
@@ -170,7 +174,7 @@ class K2ModelCategories extends K2Model
 
         if ($language)
         {
-            $query .= " AND (language = ".$db->Quote($language)." OR language = '*')";
+            $query .= " AND language = ".$db->Quote($language);
         }
 
         if ($filter_category)
@@ -293,7 +297,7 @@ class K2ModelCategories extends K2Model
         $row->move(-1, 'parent = '.$row->parent.' AND trash=0');
         $params = JComponentHelper::getParams('com_k2');
         if (!$params->get('disableCompactOrdering'))
-            $row->reorder('parent = '.$row->parent.' AND trash=0');
+            $row->reorder('parent = '.(int)$row->parent.' AND trash=0');
         $cache = JFactory::getCache('com_k2');
         $cache->clean();
         $msg = JText::_('K2_NEW_ORDERING_SAVED');
@@ -311,7 +315,7 @@ class K2ModelCategories extends K2Model
         $row->move(1, 'parent = '.$row->parent.' AND trash=0');
         $params = JComponentHelper::getParams('com_k2');
         if (!$params->get('disableCompactOrdering'))
-            $row->reorder('parent = '.$row->parent.' AND trash=0');
+            $row->reorder('parent = '.(int)$row->parent.' AND trash=0');
         $cache = JFactory::getCache('com_k2');
         $cache->clean();
         $msg = JText::_('K2_NEW_ORDERING_SAVED');
@@ -411,6 +415,9 @@ class K2ModelCategories extends K2Model
         $db->setQuery($query);
         $db->query();
 
+        JPluginHelper::importPlugin('finder');
+        $dispatcher = JDispatcher::getInstance();
+        $dispatcher->trigger('onFinderChangeState', array('com_k2.category', $cid, 0));
         $cache = JFactory::getCache('com_k2');
         $cache->clean();
 		$mainframe->enqueueMessage(JText::_('K2_CATEGORIES_MOVED_TO_TRASH'));
@@ -462,6 +469,9 @@ class K2ModelCategories extends K2Model
             $db->setQuery('UPDATE #__k2_items SET trash = 0 WHERE catid IN ('.implode(',', $restored).') AND trash = 1');
             $db->query();
         }
+        JPluginHelper::importPlugin('finder');
+        $dispatcher = JDispatcher::getInstance();
+        $dispatcher->trigger('onFinderChangeState', array('com_k2.category', $cid, 1));
         $cache = JFactory::getCache('com_k2');
         $cache->clean();
         if ($warning)
@@ -645,7 +655,7 @@ class K2ModelCategories extends K2Model
         	$row = JTable::getInstance('K2Category', 'Table');
             $row->load($id);
             $row->parent = $catid;
-            $row->ordering = $row->getNextOrder('parent = '.$row->parent.' AND published = 1');
+            $row->ordering = $row->getNextOrder('parent = '.(int)$row->parent.' AND published = 1');
             $row->store();
         }
         $cache = JFactory::getCache('com_k2');

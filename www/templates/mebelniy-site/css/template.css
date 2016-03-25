@@ -12,6 +12,7 @@ html,body,div,span{
 body {
 	font:62.5%/1.2 Helvetica, Arial, sans-serif;
 	color: #474747;
+	height:100%;
 	min-height:100%;
 	background: #f7d8a6;
 	background: -moz-linear-gradient(top,  #f7d8a6 0%, #f7d8a6 3%, #65492d 95%, #65492d 100%);
@@ -474,9 +475,6 @@ input.rsform-captcha-box{
 	font-size: 130%;
 	line-height: 1.4;
 }
-.itemBackToTop .k2Anchor{
-	display: none;
-}
 .bt-cs .bt-row p.readmore {
 	text-align: right;
 	padding-right: 7px;
@@ -610,5 +608,9 @@ ul.mod_fon a{
 	padding: 0 15px 25px;
 }
 .content-container #k2Container .itemBody{
+	font-size: 130%;
+}
+#k2Container #jc {
+	clear: none;
 	font-size: 130%;
 }

@@ -1,10 +1,10 @@
 <?php
 /**
- * @version		2.6.x
- * @package		K2
- * @author		JoomlaWorks http://www.joomlaworks.net
- * @copyright	Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ * @version    2.7.x
+ * @package    K2
+ * @author     JoomlaWorks http://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2016 JoomlaWorks Ltd. All rights reserved.
+ * @license    GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
 // no direct access
@@ -275,8 +275,19 @@ class K2ViewItemlist extends K2View
 				// Set limit
 				$limit = $params->get('tagItemCount');
 
+				// Prevent spammers from using the tag view
+				$tag = JRequest::getString('tag');
+				$db = JFactory::getDBO();
+				$db->setQuery('SELECT id, name FROM #__k2_tags WHERE name = '.$db->quote($tag));
+				$tag = $db->loadObject();
+				if (!$tag->id)
+				{
+					JError::raiseError(404, JText::_('K2_NOT_FOUND'));
+					return false;
+				}
+
 				// Set title
-				$title = JText::_('K2_DISPLAYING_ITEMS_BY_TAG').' '.JRequest::getVar('tag');
+				$title = JText::_('K2_DISPLAYING_ITEMS_BY_TAG').' '.$tag->name;
 
 				// Set ordering
 				$ordering = $params->get('tagOrdering');
@@ -378,6 +389,11 @@ class K2ViewItemlist extends K2View
 		else
 		{
 			$items = $model->getData($ordering);
+		}
+
+		// If a user has no published items, do not display their K2 user page (in the frontend) and redirect to the homepage of the site.
+		if(count($items) == 0 && $task == 'user') {
+			$mainframe->redirect(JUri::root());
 		}
 
 		// Pagination
@@ -505,7 +521,7 @@ class K2ViewItemlist extends K2View
 		}
 		$document->setTitle($params->get('page_title'));
 
-		// Search - Update the Google Search results container (K2 v2.6.9+)
+		// Search - Update the Google Search results container (K2 v2.7.0+)
 		if ($task == 'search')
 		{
 			$googleSearchContainerID = trim($params->get('googleSearchContainer', 'k2GoogleSearchContainer'));
@@ -659,7 +675,7 @@ class K2ViewItemlist extends K2View
 			$offset = (int)$params->get('num_leading_items');
 			$length = (int)$params->get('num_primary_items');
 			$primary = array_slice($items, $offset, $length);
-			
+
 			// Secondary
 			$offset = (int)($params->get('num_leading_items') + $params->get('num_primary_items'));
 			$length = (int)$params->get('num_secondary_items');
@@ -695,18 +711,22 @@ class K2ViewItemlist extends K2View
 		$this->assignRef('pagination', $pagination);
 
 		// Set Facebook meta data
-		$document = JFactory::getDocument();
-		$uri = JURI::getInstance();
-		$document->setMetaData('og:url', $uri->toString());
-		$document->setMetaData('og:title', (K2_JVERSION == '15') ? htmlspecialchars($document->getTitle(), ENT_QUOTES, 'UTF-8') : $document->getTitle());
-		$document->setMetaData('og:type', 'website');
-		if ($task == 'category' && $this->category->image && strpos($this->category->image, 'placeholder/category.png') === false)
+		if($params->get('facebookMetatags', '1'))
 		{
-			$image = substr(JURI::root(), 0, -1).str_replace(JURI::root(true), '', $this->category->image);
-			$document->setMetaData('og:image', $image);
-			$document->setMetaData('image', $image);
+			$document = JFactory::getDocument();
+			$uri = JURI::getInstance();
+			$document->setMetaData('og:url', $uri->toString());
+			$document->setMetaData('og:title', (K2_JVERSION == '15') ? htmlspecialchars($document->getTitle(), ENT_QUOTES, 'UTF-8') : $document->getTitle());
+			$document->setMetaData('og:type', 'website');
+			if ($task == 'category' && $this->category->image && strpos($this->category->image, 'placeholder/category.png') === false)
+			{
+				$image = substr(JURI::root(), 0, -1).str_replace(JURI::root(true), '', $this->category->image);
+				$document->setMetaData('og:image', $image);
+				$document->setMetaData('image', $image);
+			}
+			$document->setMetaData('og:description', strip_tags($document->getDescription()));
 		}
-		$document->setMetaData('og:description', strip_tags($document->getDescription()));
+
 
 		// Look for template files in component folders
 		$this->_addPath('template', JPATH_COMPONENT.DS.'templates');
@@ -733,19 +753,7 @@ class K2ViewItemlist extends K2View
 		$dispatcher = JDispatcher::getInstance();
 		JPluginHelper::importPlugin('k2');
 		$dispatcher->trigger('onK2BeforeViewDisplay');
-		// Prevent spammers from using the tag view
-		if ($task == 'tag' && !count($this->items))
-		{
-			$tag = JRequest::getString('tag');
-			$db = JFactory::getDBO();
-			$db->setQuery('SELECT id FROM #__k2_tags WHERE name = '.$db->quote($tag));
-			$tagID = $db->loadResult();
-			if (!$tagID)
-			{
-				JError::raiseError(404, JText::_('K2_NOT_FOUND'));
-				return false;
-			}
-		}
+
 		parent::display($tpl);
 	}
 

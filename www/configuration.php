@@ -89,4 +89,5 @@ class JConfig {
 	public $cookie_domain = '';
 	public $cookie_path = '';
 	public $asset_id = '1';
+	public $cache_platformprefix = '0';
 }

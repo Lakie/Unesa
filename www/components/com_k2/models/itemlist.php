@@ -1,10 +1,10 @@
 <?php
 /**
- * @version		2.6.x
- * @package		K2
- * @author		JoomlaWorks http://www.joomlaworks.net
- * @copyright	Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ * @version    2.7.x
+ * @package    K2
+ * @author     JoomlaWorks http://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2016 JoomlaWorks Ltd. All rights reserved.
+ * @license    GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
  */
 
 // no direct access
@@ -134,7 +134,10 @@ class K2ModelItemlist extends K2Model
 				{
 					$categories = array_filter($categories);
 					JArrayHelper::toInteger($categories);
-					$query .= " AND c.id IN(".implode(',', $categories).")";
+					if(count($categories))
+					{
+						$query .= " AND c.id IN(".implode(',', $categories).")";
+					}
 				}
 				if (is_string($categories) && $categories > 0)
 				{
@@ -449,7 +452,10 @@ class K2ModelItemlist extends K2Model
 				{
 					$categories = array_filter($categories);
 					JArrayHelper::toInteger($categories);
-					$query .= " AND c.id IN(".implode(',', $categories).")";
+					if(count($categories))
+					{
+						$query .= " AND c.id IN(".implode(',', $categories).")";
+					}
 				}
 				if (is_string($categories) && $categories > 0)
 				{
