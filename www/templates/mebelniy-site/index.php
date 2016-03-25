@@ -93,7 +93,6 @@ else
 	echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
 	<!-- Body -->
-	<div class="topground"></div>
 	<div class="body">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 			<!-- Header -->
@@ -161,24 +160,27 @@ else
 					<div class="clear-both"></div>
 			</div>
 		</div>
-	</div>
-	<!-- Footer -->
-	<footer class="footer" role="contentinfo">
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<?php if ($this->countModules('metrika')) : ?>
-				<div class = ya-metrika>
-					<jdoc:include type="modules" name="metrika" style="none" />
+		<!-- Footer -->
+		<footer class="footer" role="contentinfo">
+			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+				<jdoc:include type="modules" name="footer" style="none" />
+				<div class="custom">
+					<p class="copyright-footer">
+						&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
+
+					</p>
+					<p></p>
+					<p>&nbsp;</p>
+					<?php if ($this->countModules('metrika')) : ?>
+						<div class = ya-metrika>
+							<jdoc:include type="modules" name="metrika" style="none" />
+						</div>
+					<?php endif; ?>
 				</div>
-			<?php endif; ?>
-			<jdoc:include type="modules" name="footer" style="none" />
-			<div class="custom">
-				<p class="copyright-footer">
-					&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
-				</p>
-				<p>&nbsp;</p>
 			</div>
-		</div>
-	</footer>
+		</footer>
+	</div>
+
 	<jdoc:include type="modules" name="debug" style="none" />
 </body>
 </html>
