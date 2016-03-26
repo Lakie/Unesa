@@ -46,6 +46,7 @@ $config = array(
             $data = array(
                 'title'   => $item->title,
                 'media'   => $images ? ($content['image'] == 'intro' ? $images->image_intro : $images->image_fulltext) : '',
+                'media2'   => $images ? ($content['image'] == 'full' ? $images->image_intro : $images->image_fulltext) : '',
                 'content' => $app['filter']->apply($content['content'] == 'intro' ? $item->introtext : $item->introtext . $item->fulltext, 'content'),
                 'link'    => html_entity_decode($app['joomla.article']->getUrl($item)),
                 'tags'    => array(),

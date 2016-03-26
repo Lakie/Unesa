@@ -79,6 +79,7 @@ else
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<jdoc:include type="head" />
+	<?php JHTML::_( 'behavior.modal'); ?>
 	<!--[if lt IE 9]>
 		<script src="<?php echo JUri::root(true); ?>/media/jui/js/html5.js"></script>
 	<![endif]-->
@@ -150,10 +151,10 @@ else
 				<div id="content" role="main" class="<?php echo $span, $style_both, $style_left, $style_right ; ?>">
 					<!-- Begin Content -->
 					<div class="content-container">
+						<jdoc:include type="modules" name="main-content-2" style="none" />
 						<jdoc:include type="message" />
 						<jdoc:include type="component" />
 						<jdoc:include type="modules" name="main-content" style="xhtml" />
-						<jdoc:include type="modules" name="main-content-2" style="none" />
 					</div>
 					<!-- End Content -->
 				</div>

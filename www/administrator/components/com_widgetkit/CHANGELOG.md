@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.6.1
+ - Added media2 image to Joomla content provider
+ - Fixed items not sortable in custom content provider
+
 ### 2.6.0
  - Added instagram content provider
  - Added HTML editor field

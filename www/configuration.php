@@ -20,7 +20,7 @@ class JConfig {
 	public $live_site = '';
 	public $secret = 'clhDfxq3lG3zGBXs';
 	public $gzip = '0';
-	public $error_reporting = 'maximum';
+	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy/index.php?option=com_help&keyref=Help{major}{minor}:{keyref}';
 	public $ftp_host = '';
 	public $ftp_port = '';
@@ -54,8 +54,8 @@ class JConfig {
 	public $sef_suffix = '1';
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
-	public $log_path = 'C:\\apache\\localhost\\www/logs';
-	public $tmp_path = 'C:\\apache\\localhost\\www/tmp';
+	public $log_path = 'C:\\\\apache\\\\localhost\\\\www/logs';
+	public $tmp_path = 'C:\\\\apache\\\\localhost\\\\www/tmp';
 	public $lifetime = '1000000';
 	public $session_handler = 'database';
 	public $memcache_persist = '1';

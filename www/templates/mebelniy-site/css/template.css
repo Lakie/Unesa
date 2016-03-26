@@ -614,3 +614,100 @@ ul.mod_fon a{
 	clear: none;
 	font-size: 130%;
 }
+.map-mod-height{
+	min-height: 83px;
+}
+.map-mod-height .uk-panel{
+	padding-top: 10px;
+}
+			/* Модуль обратной связи */
+.body-overlayed {
+	overflow-y: auto !important;
+}
+body #sbox-window {
+	border-radius: 10px;
+}
+body.modal{
+	background: #fff !important;
+	overflow: hidden;
+}
+.modal form fieldset {
+	border: none;
+}
+.modal .rsform-block label{
+	display: block;
+	margin-left: 20px;
+}
+.modal .rsform-block {
+	height: auto;
+	margin-bottom: 0;
+}
+.modal .rsform-block .col-sm-3 {
+	float: none;
+	padding-bottom: 2px;
+	margin-top: 10px;
+	font-size: 130%;
+}
+.modal .rsform-block .rsform-block-captcha label{
+	float: none;
+}
+.modal .rsform-block .col-md-3{
+	float: right;
+	margin-top: 3px;
+}
+.modal .rsform-block .formControls {
+	height: 29px;
+	width: 70%;
+	border: 1px solid #888;
+	border-radius: 7px;
+	margin: 0 auto;
+}
+.modal .rsform-block .formControls input{
+	border: 0;
+	height: 23px;
+	margin: 1px auto;
+	padding: 1px;
+	display: block;
+}
+.modal .rsform-block div.col-sm-3 {
+	display: none;
+}
+.modal .rsform-block-captcha .formControls input{
+	width: 80px !important;
+	margin: 2px;
+}
+.modal .rsform-block #Submit {
+	width: 123px;
+	height: 31px;
+	border-radius: 10px;
+	background: #555;
+	margin: 0 auto;
+	padding: 0;
+	/* background-image: url("../images/style/send.gif"); */
+	cursor: pointer;
+	color: #fff;
+	font-size: 110%;
+	font-family: Arial,sans-serif;
+	letter-spacing: 1.1px;
+}
+.modal .rsform-block-submit div.formControls{
+	border: none;
+}
+.modal .formRed {
+	color: red;
+	font-weight: bold;
+	margin: 5px 0 0;
+	text-align: center;
+	font-size: 1.1em;
+}
+.feedback-module{
+	height: 30px;
+	font-size: 130%;
+	text-align: center;
+	padding-top: 5px;
+}
+			/* Навигация */
+.breadcrumb>li{
+	display: inline;
+	font-size: 130%;
+}
