@@ -183,5 +183,7 @@ else
 	</div>
 
 	<jdoc:include type="modules" name="debug" style="none" />
+	<script src="/templates/mebelniy-site/js/formplugin.js"></script>
+	<script src="/templates/mebelniy-site/js/init.js"></script>
 </body>
 </html>

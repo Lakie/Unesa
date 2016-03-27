@@ -693,6 +693,21 @@ body.modal{
 .modal .rsform-block-submit div.formControls{
 	border: none;
 }
+.modal .rsform-submit-button {
+	margin: 50% auto;
+	display: block;
+	width: 123px;
+	height: 31px;
+	border-radius: 10px;
+	background: #555;
+	padding: 0;
+	cursor: pointer;
+	color: #fff;
+	font-size: 110%;
+	font-family: Arial,sans-serif;
+	letter-spacing: 1.1px;
+	border: 0;
+}
 .modal .formRed {
 	color: red;
 	font-weight: bold;
@@ -710,4 +725,13 @@ body.modal{
 .breadcrumb>li{
 	display: inline;
 	font-size: 130%;
+}
+.breadcrumb{
+	margin-left: 0 !important;
+}
+
+			/* Ajax-form сообщение */
+.sys-messages .success-title{
+	margin: 0;
+	padding: 0.5em;
 }
