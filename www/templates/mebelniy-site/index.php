@@ -79,7 +79,7 @@ else
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<jdoc:include type="head" />
-	<?php JHTML::_( 'behavior.modal'); ?>
+	<?php /* JHTML::_( 'behavior.modal'); */ ?>
 	<!--[if lt IE 9]>
 		<script src="<?php echo JUri::root(true); ?>/media/jui/js/html5.js"></script>
 	<![endif]-->
@@ -182,7 +182,7 @@ else
 			</div>
 		</footer>
 	</div>
-
+	<jdoc:include type="modules" name="Module-hidden" style="xhtml" />
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script src="/templates/mebelniy-site/js/formplugin.js"></script>
 	<script src="/templates/mebelniy-site/js/init.js"></script>

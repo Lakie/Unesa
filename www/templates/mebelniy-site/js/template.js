@@ -16,6 +16,15 @@ if (window.MooTools) {
 {
 	$(document).ready(function()
 	{
+		if($('.showFeedback').length){
+			$('.showFeedback').bind('click', function(){
+				$('#myModal').modal({
+					backdrop: false
+				});
+				return false;
+			})
+		}
+
 		$('*[rel=tooltip]').tooltip()
 
 		// Turn radios into btn-group
