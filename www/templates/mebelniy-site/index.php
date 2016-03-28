@@ -124,6 +124,7 @@ else
 						<div class = "nav_menu_left_img"></div>
 						<div class = "nav_menu_right_img"></div>
 					</div>
+					<div class = "clear-both"></div>
 				</nav>
 			<?php endif; ?>
 			<?php if ($this->countModules('slider')) : ?>

@@ -607,7 +607,14 @@ ul.mod_fon a{
 	width: 98%;
 	padding: 0 15px 25px;
 }
+.itemHeader{
+	font-size: 150%;
+}
 .content-container #k2Container .itemBody{
+	font-size: 130%;
+}
+.content-container #jc{
+	clear: none;
 	font-size: 130%;
 }
 #k2Container #jc {
@@ -734,4 +741,28 @@ body.modal{
 .sys-messages .success-title{
 	margin: 0;
 	padding: 0.5em;
+}
+/*//////////////*/
+.rsform-block-captcha-f2{
+	margin-top: 72px;
+}
+#form-calc .rsform-block-submit{
+	margin-top: 50px;
+}
+.kat-mebel-biznes .subCategoryContainer {
+	float: left;
+	text-align: center;
+	font-size: 160%;
+}
+.itemListSubCategories>h3, .itemListSubCategories .subCategory>a{
+	display: none;
+}
+.kat-mebel-biznes .itemListSubCategories:nth-last-child(2){
+	width: 100% !important;
+}
+.kat-mebel-home{
+	font-size: 130%;
+}
+.kat-material{
+	font-size: 130%;
 }

@@ -31,8 +31,8 @@ class JConfig {
 	public $offset = 'Europe/Kiev';
 	public $mailonline = '1';
 	public $mailer = 'sendmail';
-	public $mailfrom = 'dreamerx85@gmail.com';
-	public $fromname = 'Mebel';
+	public $mailfrom = 'testsendmailphp@mail.ru';
+	public $fromname = 'drimer85@mail.ru';
 	public $sendmail = 'C:/php5/sendmail/';
 	public $smtpauth = '0';
 	public $smtpuser = '';
