@@ -91,9 +91,11 @@ ul {
 }
 #nav{
 	height:50px; 
-	background: url("../images/style/menu.png") repeat-x scroll center top transparent; 
+	background: url("../images/style/menu.png") repeat scroll center top transparent;
 	position:relative;
 	z-index:100;
+	display: table;
+	width: 100%;
 }
 #nav ul {
 	margin:0 0 0 15px;
