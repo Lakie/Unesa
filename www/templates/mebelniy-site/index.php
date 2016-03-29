@@ -182,7 +182,16 @@ else
 			</div>
 		</footer>
 	</div>
-	<jdoc:include type="modules" name="Module-hidden" style="xhtml" />
+	<?php if ($this->countModules('Module-hidden')) : ?>
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-feedbackLabel">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<jdoc:include type="modules" name="Module-hidden" style="xhtml" />
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script src="/templates/mebelniy-site/js/formplugin.js"></script>
 	<script src="/templates/mebelniy-site/js/init.js"></script>
