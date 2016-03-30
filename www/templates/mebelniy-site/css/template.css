@@ -768,14 +768,12 @@ body.modal{
 	text-align: center;
 	font-size: 160%;
 }
-.itemListSubCategories>h3, .itemListSubCategories .subCategory>a{
-	display: none;
-}
 .kat-mebel-biznes .itemListSubCategories:nth-last-child(2){
 	width: 100% !important;
 }
 .kat-mebel-home{
 	font-size: 130%;
+	line-height: 4.2;
 }
 .kat-material{
 	font-size: 130%;
@@ -903,4 +901,31 @@ div.modal {
 .modal .formControls .row:first-child img {
 	width: auto;
 	margin-left: 10px;
+}
+.float-left{
+	float: left;
+}
+.clr{
+	clear: both;
+}
+.kat-mebel-home .catItemHeader{
+	font-size: 80%;
+	padding-left: 5px;
+}
+.kat-mebel-home .catItemBody {
+	border: 1px solid black;
+}
+.kat-mebel-home img{
+	border: 1px;
+	display: table;
+}
+.kat-mebel-biznes .itemContainer{
+	float: left;
+	font-size: 190%;
+	text-align: center;
+}
+.kat-mebel-biznes #itemListLeading .itemContainer:last-of-type{
+	float: none;
+	margin: 0 auto;
+	display: table;
 }
