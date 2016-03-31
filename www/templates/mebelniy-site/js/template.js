@@ -25,7 +25,12 @@ if (window.MooTools) {
 			})
 		}
 
-		$('*[rel=tooltip]').tooltip()
+		jQuery(function(){
+			jQuery("#phone").mask("(999) 999-9999");
+		});
+
+
+	$('*[rel=tooltip]').tooltip()
 
 		// Turn radios into btn-group
 		$('.radio.btn-group label').addClass('btn');

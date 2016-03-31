@@ -29,6 +29,7 @@ $sitename = $app->get('sitename');
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.maskedinput.min.js');
 
 // Add Stylesheets
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
@@ -128,7 +129,9 @@ else
 				</nav>
 			<?php endif; ?>
 			<?php if ($this->countModules('slider')) : ?>
-				<jdoc:include type="modules" name="slider" style="xhtml" />
+				<div class="header-slider">
+					<jdoc:include type="modules" name="slider" style="xhtml" />
+				</div>
 			<?php endif; ?>
 			<div id="main-content">
 				<?php if ($this->countModules('main-left')) : ?>

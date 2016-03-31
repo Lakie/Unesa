@@ -278,7 +278,6 @@ a:hover {
 	border: 1px solid #c0c0c0;
 	margin: 0px -6px 14px !important;
 	padding: 5px !important;
-	float: right;
 	width: 100%;
 }
 .rsform textarea:hover, .rsform input:hover, .rsform input:focus, .rsform textarea:focus {
@@ -336,6 +335,9 @@ border: 1px groove #FF9326;
 .moduletable{
 	margin-bottom: 15px;
 }
+.header-slider>.moduletable{
+	margin-bottom: 0;
+}
 .footer .container{
 	position: absolute;
 	bottom: 0;
@@ -367,7 +369,7 @@ border: 1px groove #FF9326;
 }
 .content-container .bt-cs a.prev {
 	background: url(../images/style/re-left.png) left center no-repeat !important;
-	left: 577px !important;
+	left: 563px !important;
 	top: 6px;
 	opacity: 1;
 }
@@ -466,6 +468,10 @@ input.rsform-captcha-box{
 }
 .rsform-block-file-f2 .col-sm-3{
 	padding:10px 0 0;
+	display: block;
+}
+.rsform-block-file-f2 {
+	display: inline-block;
 }
 .formErrorMsg, .formTrueMsg, .rsform>form>div>p, .rsform>p {
 	font-weight: bold;
@@ -516,17 +522,24 @@ input.rsform-captcha-box{
 	padding-left: 15px;
 }
 #btcontentslider112{
-	margin: 40px -15px 0 -5px; !important;
+	margin: 40px 0 0 -5px; !important;
 	font-size: 130%;
 }
 .uk-width-1-1 ul.uk-dotnav{
-	zoom: 40%;
+/*	zoom: 40%; */
+}
+.uk-width-1-1 .uk-dotnav>*>*{
+	width: 10px;
+	height: 10px;
+}
+.uk-width-1-1 .uk-dotnav>*{
+	padding-left: 8px;
 }
 .uk-width-1-1 ul.uk-dotnav>li{
 	z-index: 100;
 }
 .uk-width-1-1 .uk-margin-bottom{
-	margin-bottom: 0 !important;
+	margin-bottom: 12px !important;
 }
 .uk-panel .uk-grid-margin{
 	position: absolute;
@@ -591,7 +604,6 @@ select {
 	display: block;
 }
 .rsform-block {
-	display: table;
 /*	height: 30px;
 	margin-bottom: 10px; */
 }
@@ -782,9 +794,10 @@ div.modal {
 	display: none;
 	overflow: hidden;
 	position: fixed;
-	left: 41%;
+	left: 50%;
+	margin-left: -130px;
 	z-index: 1050;
-	width: 18%;
+	width: 260px;
 	background-color: #fff;
 	border: 1px solid #333;
 	-webkit-border-radius: 6px;
@@ -806,7 +819,7 @@ div.modal {
 	top: -100%;
 }
 .modal.fade.in {
-	top: 10%;
+	top: 25%;
 }
 .close {
 	font-size: 35px;
@@ -928,4 +941,17 @@ div.modal {
 	float: none;
 	margin: 0 auto;
 	display: table;
+}
+.kat-material .itemContainer{
+	float: left;
+	display: table;
+	margin-bottom: 65px;
+}
+.kat-material img {
+	max-height: 125px;
+	border: 1px solid #cc6d33;
+}
+.kat-material .catItemHeader {
+	text-align: center;
+	font-size: 80%;
 }
