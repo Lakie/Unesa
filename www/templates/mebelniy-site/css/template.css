@@ -198,6 +198,9 @@ ul {
 		width: 25%;
 		*width: 25%;
 }
+.span4{
+	width: 33%;
+}
 #main-content{
 	background: #ffffff;
 	width: 100%;
@@ -280,6 +283,9 @@ a:hover {
 	padding: 5px !important;
 	width: 100%;
 }
+.rsform input{
+	height: 18px;
+}
 .rsform textarea:hover, .rsform input:hover, .rsform input:focus, .rsform textarea:focus {
 	border: 1px solid #c0c0c0;
 	background-color: #ffffe0;
@@ -349,10 +355,21 @@ border: 1px groove #FF9326;
 	position: absolute;
 	top: 10px;
 }
-.footer .custom{
-	background-image: url('../images/style/menu.png');
+.margin-copy-33{
+	margin: 0 33% !important;
 }
-.footer .custom p{
+.developer {
+	text-align: right;
+	color: #fff;
+	font-weight: bold;
+	padding: 2px 5px 0 0;
+	font-size: 11px;
+}
+.footer .footer-custom{
+	background-image: url('../images/style/menu.png');
+	height: 75px;
+}
+.footer .copyright-footer {
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -393,8 +410,8 @@ border: 1px groove #FF9326;
 	margin-bottom: 5px;
 }
 .formControls .row:first-child img {
-	width: 120px;
-	margin-left: -5px;
+	width: 122px;
+	margin-left: -6px;
 }
 .formControls .row:last-child{
 	left: 120px;
@@ -404,7 +421,7 @@ border: 1px groove #FF9326;
 	margin-top: -38px;
 }
 input.rsform-captcha-box{
-	width: 70% !important;
+	width: 120px !important;
 	float: left;
 }
 .row a img{
@@ -424,6 +441,7 @@ input.rsform-captcha-box{
 } */
 #Submit{
 	width: 60%;
+	height: 27px;
 }
 .rsform label.file-label{
 	display: block;
@@ -918,6 +936,9 @@ div.modal {
 .float-left{
 	float: left;
 }
+.float-right{
+	float: right;
+}
 .clr{
 	clear: both;
 }
@@ -954,4 +975,32 @@ div.modal {
 .kat-material .catItemHeader {
 	text-align: center;
 	font-size: 80%;
+}
+a#scrollToTop {
+	opacity: 0.3 !important;
+}
+a#scrollToTop:hover {
+	opacity: 0.7 !important;
+}
+a#scrollToTop img {
+	width: 40px;
+}
+.fb-ceny {
+	font-size: 130%;
+	position: relative;
+	text-align: center;
+	margin-left: -100px;
+}
+.gm_overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #555;
+	opacity: 0.2;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	z-index: 900;
 }

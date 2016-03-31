@@ -18,15 +18,28 @@ if (window.MooTools) {
 	{
 		if($('.showFeedback').length){
 			$('.showFeedback').bind('click', function(){
+				$('.gm_overlay').fadeIn(400);
+				$('#myModal').animate({opacity: 1, top: '25%'}, 200);
 				$('#myModal').modal({
 					backdrop: false
 				});
 				return false;
 			})
 		}
+		$('.close, .gm_overlay').click( function(){
+			$('#myModal').animate({opacity: 0, top: '-100%'}, 200,
+				function(){
+					$('#myModal').hide()
+					$('.gm_overlay').fadeOut(400);
+				}
+			);
+		});
 
 		jQuery(function(){
 			jQuery("#phone").mask("(999) 999-9999");
+			jQuery("#phone-f2").mask("(999) 999-9999");
+			jQuery("#phone-f3").mask("(999) 999-9999");
+			jQuery("#phone-f4").mask("(999) 999-9999");
 		});
 
 

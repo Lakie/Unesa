@@ -60,7 +60,10 @@ else
 {
 	$span = "span12";
 }
-
+$margin_copy33 = '';
+if ($this->countModules('developer')) {
+	$margin_copy33 = 'margin-copy-33';
+}
 // Logo file or site title param
 if ($this->params->get('logoFile'))
 {
@@ -169,14 +172,20 @@ else
 		<footer class="footer" role="contentinfo">
 			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 				<jdoc:include type="modules" name="footer" style="none" />
-				<div class="custom">
-					<p class="copyright-footer">
+				<?php if ($this->countModules('developer')) : ?>
+					<div class = "developer span4 float-right">
+						<jdoc:include type="modules" name="developer" style="none" />
+					</div>
+				<?php endif; ?>
+				<div class="footer-custom">
+					<div class="copyright-footer <?php echo $margin_copy33; ?>">
+
 						&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
 
-					</p>
-					<p></p>
+					</div>
 					<p>&nbsp;</p>
 					<?php if ($this->countModules('metrika')) : ?>
+
 						<div class = ya-metrika>
 							<jdoc:include type="modules" name="metrika" style="none" />
 						</div>
@@ -198,5 +207,6 @@ else
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script src="/templates/mebelniy-site/js/formplugin.js"></script>
 	<script src="/templates/mebelniy-site/js/init.js"></script>
+	<div class="gm_overlay"></div>
 </body>
 </html>
