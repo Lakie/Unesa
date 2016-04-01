@@ -30,9 +30,11 @@ $sitename = $app->get('sitename');
 JHtml::_('bootstrap.framework');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.maskedinput.min.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.select2.full.min.js');
 
 // Add Stylesheets
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
+$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/select2.min.css');
 
 // Load optional RTL Bootstrap CSS
 JHtml::_('bootstrap.loadCss', false, $this->direction);

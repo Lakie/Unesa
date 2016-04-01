@@ -12,6 +12,7 @@ if (window.MooTools) {
 	};
 }
 
+
 (function($)
 {
 	$(document).ready(function()
@@ -41,7 +42,32 @@ if (window.MooTools) {
 			jQuery("#phone-f3").mask("(999) 999-9999");
 			jQuery("#phone-f4").mask("(999) 999-9999");
 		});
+		$(function () {
+			$("#calc").change(function () {
+				chek_option(this,'.select-arrow');
+			}).change();
+		});
 
+
+		function chek_option(item,name) {
+			var str = "";
+			$(item.children).each(function () {
+				if(this.selected) str += $(this).val() + " ";
+			});
+			$(name).html(str);
+		}
+	/*	function formatMebel (state) {
+			if (!state.id) { return state.text; }
+			var $state = $(
+				'<span>' + state.text + '</span>'
+			);
+			return $state;
+		};
+
+		$("#calc").select2({
+			templateResult: formatMebel
+		});
+*/
 
 	$('*[rel=tooltip]').tooltip()
 
