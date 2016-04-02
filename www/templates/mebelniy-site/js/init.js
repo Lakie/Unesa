@@ -21,18 +21,19 @@
             var $this = $(this);
             // pre-submit callback 
             function showRequest(formData, jqForm, options) {
-                $this.find('.rsform-submit-button').addClass('sending').text("Отправка....");
+                $this.find('.hide-form-success').append('<div class="sending"></div>');
             }
             // post-submit callback
             function showResponseAll(responseText, statusText, xhr, $form) {
                 if ($this.find('.formError').is(":visible")) {
-                    $this.find('.rsform-submit-button').removeClass('sending').text("Отправить");
+                    $this.find('.sending').remove();
                 } else {
 					$this[0].reset();
                     $this.find('.hide-form-success').slideUp();//.delay(4000).slideDown();
-                    $this.find('.rsform-submit-button').removeClass('sending').text("Отправить");
+                    $this.find('.sending').remove();
+                    var response=$(responseText);
                     $this.find('.hide-form-success').after('<div class="sys-messages"></div>');
-                    $this.find('.sys-messages').html('<h4 class="success-title">' + options.successTitle + '</h4><p class = "success-text" >' + options.successText + '</p>');
+                    $this.find('.sys-messages').html(response.find('.response-form').parent().html());
 //                    setTimeout(function() {
 //                        $this.find('.sys-messages').fadeOut().delay(2000).remove();
  //                   }, 4000);
@@ -45,20 +46,20 @@
 
 jQuery(document).ready(function($) {
     $('#zamer').sendForm({
-        successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
-//        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
+       successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
+        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
     });
     $('#form-calc').sendForm({
-        successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
-//        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
+       successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
+        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
     });
     $('#zakaz-zamera').sendForm({
-        successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
-//        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
+       successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
+        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
     });
     $('#form-feedback').sendForm({
-        successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
-//        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
+       successTitle: "", // Переопределяет стандартный вывод заголовка после отправки формы
+        successText: "Спасибо за ваше обращение." // Переопределяет стандартный вывод текста после отправки формы
     });
 }); // end ready
 

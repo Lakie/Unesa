@@ -494,8 +494,9 @@ input.rsform-captcha-box{
 .formErrorMsg, .formTrueMsg, .rsform>form>div>p, .rsform>p {
 	font-weight: bold;
 	margin: 0 0 10px;
-	padding: 16px 32px;
-	font-size: 130%;
+	padding: 16px 25px;
+	font-size: 120%;
+	text-align: center;
 	color: #505050;
 	box-shadow: 0 0 10px rgba(211, 206, 56, 0.7) inset, 0px 0px 7px rgba(211, 206, 56, 0.7);
 	border: 1px solid #d3ce38;
@@ -590,7 +591,7 @@ select {
 	height: 30px;
 	cursor: pointer;
 }
-.select-fon {
+/* .select-fon {
 	background: url("../images/style/select-background.png") repeat-x;
 	display: table;
 	height: 28px;
@@ -613,6 +614,46 @@ select {
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-color: transparent;
+	font-family: Arial, sans-serif;
+} */
+.formControls .select2-container {
+	display: table-cell;
+}
+.formControls .select2-container--default .select2-selection--single {
+	background: url("../images/style/select-background.png") repeat-x;
+	display: table;
+	height: 28px;
+	border-radius: 5px;
+	width: 100% !important;
+	border: 1px solid #c0c0c0;
+	box-shadow: 0px 0px 7px rgba(192, 192, 192, 0.7);
+	font-size: 130%;
+	color: #505050;
+}
+.formControls .select2-container--default .select2-selection--single .select2-selection__arrow b{
+	border-style: none;
+}
+.formControls .select2-container--default .select2-selection--single .select2-selection__arrow {
+	background: url("../images/style/select-arrow-right.png");
+	background-position: right -1px;
+	color: #505050;
+	height: 28px;
+	border-radius: 5px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100% !important;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-color: transparent;
+}
+.formControls .select2-container--default .select2-selection--single .select2-selection__rendered {
+	color: #505050;
+	line-height: 28px;
+	font-family: Arial, sans-serif;
+}
+.select2-results>ul>li {
+	font-size: 130%;
+	min-height: 16px;
 	font-family: Arial, sans-serif;
 }
 .rsform-block-text-f2{
@@ -855,6 +896,7 @@ div.modal {
 	cursor: pointer;
 	background: transparent;
 	border: 0;
+	z-index: 1100;
 }
 .close:hover,
 .close:focus {
@@ -1003,4 +1045,22 @@ a#scrollToTop img {
 	bottom: 0;
 	display: none;
 	z-index: 900;
+}
+.sending{
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: 40%;
+	top: 40%;
+	background: url("../images/style/ajax-loader.gif") no-repeat;
+}
+.rsform {
+	position: relative;
+}
+.response-form {
+
+}
+.sys-messages input {
+	height: auto;
+	margin: -10px auto 10px !important;
 }
