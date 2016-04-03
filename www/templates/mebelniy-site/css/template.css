@@ -1061,6 +1061,7 @@ a#scrollToTop img {
 
 }
 .sys-messages input {
+	display: none;
 	height: auto;
 	margin: -10px auto 10px !important;
 }
