@@ -274,7 +274,7 @@ a:hover {
 .rsform-input-box{
 	width: 90%;
 }
-.rsform input, .rsform textarea {
+.rsform .form-group .formControls input, .rsform .form-group .formControls textarea {
 	color: #505050;
 	background-color: #ffffff;
 	border-radius: 5px;
@@ -284,10 +284,10 @@ a:hover {
 	padding: 5px !important;
 	width: 100%;
 }
-.rsform input{
+.rsform .form-group input{
 	height: 18px;
 }
-.rsform textarea:hover, .rsform input:hover, .rsform input:focus, .rsform textarea:focus {
+.rsform .form-group textarea:hover, .rsform .form-group input:hover, .rsform .form-group input:focus, .rsform .form-group textarea:focus {
 	border: 1px solid #c0c0c0;
 	background-color: #ffffe0;
 }
@@ -423,7 +423,7 @@ border: 1px groove #FF9326;
 .rsform-block-captcha-f2 .col-sm-3:last-child{
 	margin-top: 0px;
 }
-input.rsform-captcha-box{
+.rsform .form-group input.rsform-captcha-box{
 	width: 65px !important;
 	float: left;
 	margin: 0 !important;
@@ -455,8 +455,14 @@ input.rsform-captcha-box{
 } */
 #Submit{
 	width: 60%;
-	height: 27px;
+	height: 30px;
 	cursor: pointer;
+	background-image: none;
+}
+#Submit:hover{
+	background-image: none;
+	background: #ffffe0;
+	color: #505050;
 }
 .rsform label.file-label{
 	display: block;
@@ -520,7 +526,7 @@ input.rsform-captcha-box{
 	border-radius: 5px;
 	background: url("../images/style/message-background.png") repeat-x scroll 0 0 #FFFFFF;
 }
-.formControls .rsform-error {
+.rsform .form-group .formControls .rsform-error {
 	box-shadow: 0 0 10px rgba(192, 80, 80, 0.7) inset, 0px 0px 7px rgba(192, 80, 80, 0.7);
 	border: 1px solid #c05050;
 }
@@ -776,14 +782,20 @@ body.modal{
 	margin: 0 auto;
 }
 .modal .rsform-block .formControls input{
-	border: 0;
 	height: 23px;
 	margin: 1px auto;
 	padding: 1px;
 	display: block;
 }
 .modal .rsform-block div.col-sm-3 {
+	height: 0;
+}
+.modal .rsform-block-submit label{
 	display: none;
+}
+.modal .formErrorMsg, .modal .formTrueMsg, .modal .rsform>form>div>p, .modal .rsform>p {
+	margin-top: 25px;
+	font-size: 130%;
 }
 .modal .rsform-block-captcha .formControls input{
 	width: 80px !important;
@@ -1089,4 +1101,8 @@ a#scrollToTop img {
 }
 .map-mod-height .uk-row-first{
 	padding: 0;
+}
+.rsform .formResponsive fieldset {
+	margin: 0 2px;
+	padding: 0.75em 0.35em 0.75em 0.625em;
 }

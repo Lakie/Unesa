@@ -30,6 +30,8 @@ if (window.MooTools) {
 		$('.close, .gm_overlay').click( function(){
 			$('#myModal').animate({opacity: 0, top: '-100%'}, 200,
 				function(){
+					$('#myModal').find('.hide-form-success').slideDown();
+					$('#myModal').find('.sys-messages').fadeOut().remove();
 					$('#myModal').hide();
 					$('.gm_overlay').fadeOut(400);
 				}
