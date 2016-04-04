@@ -23,6 +23,7 @@ body {
 }
 body.site {
 	border-top: none !important;
+	position: relative;
 }
 html {
 	height:100%;
@@ -351,6 +352,8 @@ border: 1px groove #FF9326;
 	left: 0; */
 	height: 75px;
 	min-width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 .ya-metrika{
 	position: absolute;
@@ -550,6 +553,7 @@ border: 1px groove #FF9326;
 .body{
 	min-height: 100%;
 	height: auto;
+	padding-bottom: 75px;
 }
 .uk-accordion-content{
 	padding: 10px !important;
