@@ -170,32 +170,32 @@ else
 					<div class="clear-both"></div>
 			</div>
 		</div>
+	</div>
+	<div class="clear-both"></div>
 		<!-- Footer -->
 		<footer class="footer" role="contentinfo">
 			<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
 				<jdoc:include type="modules" name="footer" style="none" />
-				<?php if ($this->countModules('developer')) : ?>
-					<div class = "developer span4 float-right">
-						<jdoc:include type="modules" name="developer" style="none" />
-					</div>
-				<?php endif; ?>
+
 				<div class="footer-custom">
-					<div class="copyright-footer <?php echo $margin_copy33; ?>">
-
-						&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
-
-					</div>
-					<p>&nbsp;</p>
-					<?php if ($this->countModules('metrika')) : ?>
-
-						<div class = ya-metrika>
-							<jdoc:include type="modules" name="metrika" style="none" />
+					<div class="footer-body">
+						<?php if ($this->countModules('metrika')) : ?>
+							<div class = ya-metrika>
+								<jdoc:include type="modules" name="metrika" style="none" />
+							</div>
+						<?php endif; ?>
+						<?php if ($this->countModules('developer')) : ?>
+							<div class = "developer">
+								<jdoc:include type="modules" name="developer" style="none" />
+							</div>
+						<?php endif; ?>
+						<div class="copyright-footer <?php echo $margin_copy33; ?>">
+							&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
 						</div>
-					<?php endif; ?>
+					</div>
 				</div>
 			</div>
 		</footer>
-	</div>
 	<?php if ($this->countModules('Module-hidden')) : ?>
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-feedbackLabel">
 			<div class="modal-content">
