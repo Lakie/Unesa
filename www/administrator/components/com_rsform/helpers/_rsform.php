@@ -2717,8 +2717,7 @@ class RSFormProHelper
 	public static function sendMail($from, $fromname, $recipient, $subject, $body, $mode=0, $cc=null, $bcc=null, $attachment=null, $replyto=null, $replytoname=null)
 	{
 		// Get a JMail instance
-		//$mail 		= JFactory::getMailer();
-		$mail 		= new JMail(false);
+		$mail 		= JFactory::getMailer();
 		
 		// Allow this to be overridden
 		JFactory::getApplication()->triggerEvent('rsfp_onCreateMailer', array(array(
