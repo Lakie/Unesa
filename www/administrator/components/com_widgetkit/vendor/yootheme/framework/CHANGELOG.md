@@ -1,7 +1,13 @@
 # Changelog
 
+### 1.1.15
+  - Fixed JoomlaPlugin initialization
+
 ### 1.1.14
-  - Added Angular-Touch for IPad WK2 editing 
+  - Added Angular-Touch for IPad WK2 editing
+  - Updated UIkit to 2.26.0
+  - Fixed JoomlaPlugin initialization
+
 
 ### 1.1.13
   - Updated UIkit to 2.23.0

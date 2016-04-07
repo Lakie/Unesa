@@ -25,6 +25,7 @@ return array(
             'mapctrl'                 => true,
             'zoom'                    => 9,
             'marker'                  => 2,
+            'marker_icon'             => '',
             'markercluster'           => false,
             'popup_max_width'         => 300,
             'zoomwheel'               => true,
@@ -68,6 +69,7 @@ return array(
 
         'init.site' => function($event, $app) {
             $app['scripts']->add('widgetkit-maps', 'plugins/widgets/map/assets/maps.js', array('uikit'));
+            $app['scripts']->add('widgetkit-marker', 'plugins/widgets/map/assets/marker-helper.js');
         },
 
         'init.admin' => function($event, $app) {

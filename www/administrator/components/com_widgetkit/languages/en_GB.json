@@ -83,6 +83,7 @@
     "Collapse": "Collapse",
     "Collapse Items": "Collapse Items",
     "Color": "Color",
+    "Color or image url": "Color or image url",
     "Column Width": "Column Width",
     "Columns": "Columns",
     "Content": "Content",
@@ -424,6 +425,7 @@
     "You haven't created any widgets yet.": "You haven't created any widgets yet.",
     "Zoom Level": "Zoom Level",
     "Zoom map on scroll": "Zoom map on scroll",
+    "default": "default",
     "e.g. %example%": "e.g. %example%",
     "tag, tag, ...": "tag, tag, ..."
 }

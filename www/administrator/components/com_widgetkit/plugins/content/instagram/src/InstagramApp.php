@@ -85,7 +85,8 @@ class InstagramApp extends ApplicationAware
                     if ($params['limit'] && (sizeof($posts) == $params['limit']) || sizeof($posts) == 60 ) break 2;
                 }
 
-                $max_id = end($json['items'])['id'];
+                $endElement = end($json['items']);
+                $max_id = $endElement['id'];
 
             } while (isset($json['more_available']) && $json['more_available'] == 1);
 

@@ -57,7 +57,7 @@ return array(
                 });
             }
 
-            if ($sort[1] == 'desc') {
+            if (isset($sort[1]) && $sort[1] == 'desc') {
                 $files = array_reverse($files);
             }
 

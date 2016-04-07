@@ -104,7 +104,7 @@ class Type extends BaseType
         );
 
         // custom fields
-        $fields = $this->app['db']->fetchAllObjects("SELECT *, field.name as 'name', groups.name as 'group' FROM @k2_extra_fields as field LEFT JOIN @k2_extra_fields_groups AS groups ON field.group = groups.id WHERE published = 1");
+        $fields = $this->app['db']->fetchAllObjects("SELECT field.id as 'id', field.type as 'type', field.name as 'name', groups.name as 'group' FROM @k2_extra_fields as field LEFT JOIN @k2_extra_fields_groups AS groups ON field.group = groups.id WHERE published = 1");
 
         foreach ($fields as $field) {
 

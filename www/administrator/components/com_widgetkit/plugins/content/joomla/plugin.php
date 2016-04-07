@@ -62,9 +62,11 @@ $config = array(
             if ($content['link'] != '' and $urls and !empty($urls["url{$content['link']}"])) {
                 $data['link'] = html_entity_decode($urls["url{$content['link']}"]);
             }
-
-            foreach ($item->tags->itemTags as $tag) {
-               $data['tags'][] = $tag->title;
+            
+            if (isset($item->tags) && $item->tags) {
+                foreach ($item->tags->itemTags as $tag) {
+                   $data['tags'][] = $tag->title;
+                }
             }
 
             $items->add($data);

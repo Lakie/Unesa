@@ -1,5 +1,22 @@
 # Changelog
 
+### 2.6.4
+ - Fixed ZOO/K2 plugins not loading
+
+### 2.6.3
+ - Added customizable map marker
+ - Added gutter large option
+ - Fixed switcher not loaded in Zoo content provider
+ - Fixed gallery / grid / grid-slider overlapping images wrong selector
+ - Fixed default mapping in K2 content provider
+ - Fixed mapping of K2 extra fields
+ - Fixed instagram content provider for php 5.3
+ - Fixed Notice when using random sorting in folder content
+
+### 2.6.2
+  - Fixed Joomla content provider with missing tags property
+
+
 ### 2.6.1
  - Added media2 image to Joomla content provider
  - Fixed items not sortable in custom content provider

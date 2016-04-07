@@ -13,6 +13,7 @@ foreach ($items as $i => $item) {
         $marker = array(
             'lat'     => $item['location']['lat'],
             'lng'     => $item['location']['lng'],
+            'icon'    => @$item['location']['marker'],
             'title'   => $item['title'],
             'content' => ''
         );

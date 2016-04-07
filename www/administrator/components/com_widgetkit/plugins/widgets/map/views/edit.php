@@ -140,7 +140,7 @@
             </li>
             <li>
 
-                <h3 class="wk-form-heading">{{'Style' | trans}}</h3>
+                <h3 class="wk-form-heading">{{'Map' | trans}}</h3>
 
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{'Invert' | trans}}</span>
@@ -174,6 +174,15 @@
                     <label class="uk-form-label" for="wk-styler-gamma">{{'Gamma' | trans}}</label>
                     <div class="uk-form-controls">
                         <input id="wk-styler-gamma" class="uk-form-width-small" type="text" ng-model="widget.data['styler_gamma']"> ({{'%from% to %to%' | trans: {from:0, to:10} }})
+                    </div>
+                </div>
+
+                <h3 class="wk-form-heading">{{'Marker' | trans}}</h3>
+
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="wk-marker-icon">{{'Icon' | trans}}</label>
+                    <div class="uk-form-controls">
+                        <input id="wk-marker-icon" class="uk-form-width-small" type="text" placeholder="{{'default' | trans}}" ng-model="widget.data['marker_icon']"> ({{'Color or image url' | trans}})
                     </div>
                 </div>
 

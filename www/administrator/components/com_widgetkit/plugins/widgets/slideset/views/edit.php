@@ -135,6 +135,7 @@
                             <option value="collapse">{{'Collapse' | trans}}</option>
                             <option value="small">{{'Small' | trans}}</option>
                             <option value="medium">{{'Medium' | trans}}</option>
+                            <option value="large">{{'Large' | trans}}</option>
                         </select>
                     </div>
                 </div>

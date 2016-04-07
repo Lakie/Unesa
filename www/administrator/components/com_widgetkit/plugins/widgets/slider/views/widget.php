@@ -17,9 +17,7 @@ $grid .= $settings['columns_medium'] ? ' uk-grid-width-medium-1-'.$settings['col
 $grid .= $settings['columns_large'] ? ' uk-grid-width-large-1-'.$settings['columns_large'] : '';
 $grid .= $settings['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$settings['columns_xlarge'] : '';
 
-$grid .= ($settings['gutter'] == 'collapse') ? ' uk-grid-collapse' : '' ;
-$grid .= ($settings['gutter'] == 'small') ? ' uk-grid-small' : '' ;
-$grid .= ($settings['gutter'] == 'medium') ? ' uk-grid-medium' : '' ;
+$grid .= in_array($settings['gutter'], array('collapse','large','medium','small')) ? ' uk-grid-'.$settings['gutter'] : '' ;
 
 // Title Size
 switch ($settings['title_size']) {

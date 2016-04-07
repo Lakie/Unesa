@@ -48,6 +48,7 @@ h4 {
 }
 a{
 	text-decoration:none;
+	zoom: 1;
 }
 li {
 	list-style-type: none;
@@ -1124,10 +1125,4 @@ a#scrollToTop img {
 }
 .header a img {
 	border: 0;
-}
-a{
-	zoom: 1;
-}
-.uk-overlay-panel a[class*=uk-] {
-
 }

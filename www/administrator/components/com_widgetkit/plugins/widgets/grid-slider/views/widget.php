@@ -67,9 +67,7 @@ if ($settings['grid'] == 'dynamic') {
 
 } else {
     $grid .= ' uk-grid uk-grid-match';
-    $grid .= ($settings['gutter'] == 'collapse') ? ' uk-grid-collapse' : '' ;
-    $grid .= ($settings['gutter'] == 'small') ? ' uk-grid-small' : '' ;
-    $grid .= ($settings['gutter'] == 'medium') ? ' uk-grid-medium' : '' ;
+    $grid .= in_array($settings['gutter'], array('collapse','large','medium','small')) ? ' uk-grid-'.$settings['gutter'] : '' ;
     $grid_js = 'data-uk-grid-match="{target:\'> div > .uk-panel\', row:true}" data-uk-grid-margin';
 
     if ($settings['parallax']) {
@@ -305,9 +303,15 @@ $link_target = ($settings['link_target']) ? ' target="_blank"' : '';
 <script>
     (function($){
         // get the images of the grid-slider and replace it by a canvas of the same size to fix the problem with overlapping images on load.
-        $('img:first', $('#wk-grid<?php echo $settings['id']; ?>')).each(function() {
-            var $img = $(this),
-                $canvas = $('<canvas class="uk-responsive-width"></canvas>').attr({width:$img.attr('width'), height:$img.attr('height')}),
+        $('img[width][height]:not(.uk-overlay-panel)', $('#wk-grid<?php echo $settings['id']; ?>')).each(function() {
+
+            var $img = $(this);
+
+            if (this.width == 'auto' || this.height == 'auto' || !$img.is(':visible')) {
+                return;
+            }
+
+            var $canvas = $('<canvas class="uk-responsive-width"></canvas>').attr({width:$img.attr('width'), height:$img.attr('height')}),
                 img = new Image;
 
             $img.css('display', 'none').after($canvas);
