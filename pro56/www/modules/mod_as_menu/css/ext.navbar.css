@@ -1,0 +1,137 @@
+/*******************************************************************************************/
+/*
+/*        Designed by 'AS Designing'
+/*        Web: http://www.asdesigning.com
+/*        Web: http://www.astemplates.com
+/*        License: GNU/GPL
+/*
+/*******************************************************************************************/
+
+.as-navbar
+{
+	height: 2.5em;
+	padding-bottom:	2.5em;
+	position: relative;
+}
+
+.as-navbar li
+{
+	background: #AABDE6;
+	position: static;
+}
+
+.as-navbar a
+{
+	border-top: none;
+}
+
+.as-navbar li ul
+{
+	width: 44em;
+}
+
+.as-navbar li li
+{
+	position: relative;
+}
+
+.as-navbar li li ul
+{
+	width: 13em;
+}
+
+.as-navbar li li li
+{
+	width: 100%;
+}
+
+.as-navbar ul li
+{
+	width: auto;
+	float: left;
+}
+
+.as-navbar a,
+.as-navbar a:visited
+{
+	border:	none;
+}
+
+.as-navbar li.current
+{
+}
+
+.as-navbar li:hover,
+.as-navbar li.asHover,
+.as-navbar li li.current,
+.as-navbar a:focus,
+.as-navbar a:hover,
+.as-navbar a:active
+{
+}
+
+.as-navbar ul li:hover,
+.as-navbar ul li.asHover,
+ul.as-navbar ul li:hover li,
+ul.as-navbar ul li.asHover li,
+.as-navbar ul a:focus,
+.as-navbar ul a:hover,
+.as-navbar ul a:active
+{
+}
+
+ul.as-navbar li li li:hover,
+ul.as-navbar li li li.asHover,
+.as-navbar li li.current li.current,
+.as-navbar ul li li a:focus,
+.as-navbar ul li li a:hover,
+.as-navbar ul li li a:active
+{
+}
+
+ul.as-navbar .current ul,
+ul.as-navbar ul li:hover ul,
+ul.as-navbar ul li.asHover ul
+{
+	left: 0;
+	top: 2.5em;
+}
+
+ul.as-navbar .current ul ul
+{
+	top: -999em;
+}
+
+.as-navbar li li.current > a
+{
+	font-weight: bold;
+}
+
+.as-navbar ul .as-sub-indicator
+{
+	background-position: -10px -100px;
+}
+
+.as-navbar ul a > .as-sub-indicator
+{
+	background-position: 0 -100px;
+}
+
+.as-navbar ul a:focus > .as-sub-indicator,
+.as-navbar ul a:hover > .as-sub-indicator,
+.as-navbar ul a:active > .as-sub-indicator,
+.as-navbar ul li:hover > a > .as-sub-indicator,
+.as-navbar ul li.asHover > a > .as-sub-indicator
+{
+	background-position: -10px -100px;
+}
+
+.as-navbar > li > ul
+{
+	background: transparent;
+	padding: 0;
+	-moz-border-radius-bottomleft: 0;
+	-moz-border-radius-topright: 0;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" method="upgrade">
+	<name>mod_view_contact</name>
+	<creationDate>04-2006</creationDate>
+	<author>viewmenu</author>
+	<authorEmail>qwerty@qwerty.ru</authorEmail>
+	<authorUrl>http://www.qwerty.ru</authorUrl>
+	<copyright>Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.</copyright>
+	<license>license GNU/GPL: http://www.gnu.org/copyleft/gpl.html </license>
+	<version>1.0.0</version>
+	<description><p>Модуль вывода меню</p></description>
+	<files>
+		<filename module="mod_view_contact">mod_view_contact.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_view_contact.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_view_contact.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				
+				<field
+					name="region"
+					type="textarea"
+					cols="30"
+					rows="2"
+					label="MOD_VIEW_CONTACT_REGION_LABEL"
+					description="MOD_VIEW_CONTACT_REGION_DESC" />
+				<field
+					name="city"
+					type="textarea"
+					cols="30"
+					rows="2"
+					label="MOD_VIEW_CONTACT_CITY_LABEL"
+					description="MOD_VIEW_CONTACT_CITY_DESC" />
+				<field
+					name="adres"
+					type="textarea"
+					cols="30"
+					rows="2"
+					label="MOD_VIEW_CONTACT_ADRES_LABEL"
+					description="MOD_VIEW_CONTACT_ADRES_DESC" />
+				<field
+					name="email"
+					type="text"
+					cols="30"
+					label="MOD_VIEW_CONTACT_EMAIL_LABEL"
+					description="MOD_VIEW_CONTACT_EMAIL_DESC" />
+				<field
+					name="phone-mob"
+					type="text"
+					cols="30"
+					label="MOD_VIEW_CONTACT_PHONE_M_LABEL"
+					description="MOD_VIEW_CONTACT_PHONE_M_DESC" />
+				<field
+					name="phone-dom"
+					type="text"
+					cols="30"
+					label="MOD_VIEW_CONTACT_PHONE_D_LABEL"
+					description="MOD_VIEW_CONTACT_PHONE_D_DESC" />
+				
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

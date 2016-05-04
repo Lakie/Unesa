@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="3.0" type="module" client="site">
+    <name>AS Scroller</name>
+	<author>AS Designing</author>
+	<creationDate>2012-08-23</creationDate>
+	<updateDate>2013-02-26</updateDate>
+    <version>2.0.1</version>
+    <authorUrl>http://www.asdesigning.com</authorUrl>
+    <copyright>AS Designing</copyright>
+    <license>GNU/GPL</license>
+
+    <description>
+    <![CDATA[
+
+            <img src="../modules/mod_as_scroller/extension_thumbnail.png" align="left" style="margin: 0px 20px 10px 0px;" />
+            
+            <h1>AS Extensions - AS Scroller</h1>
+            <br />
+            Horizontal image scroller for one or more images<br />
+			Visit our site for more extensions: <a href="http://www.astemplates.com" target="_blank">www.astemplates.com</a>
+            
+            <br /><br />]]>    
+    
+    </description>	
+	
+	<files>
+		<filename module="mod_as_scroller">mod_as_scroller.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+        <filename>mod_as_scroller.xml</filename>
+		<filename>extension_thumbnail.png</filename>		
+		
+		<folder>tmpl</folder>
+        <folder>css</folder>
+        <folder>lib</folder>		
+        <folder>scripts</folder>
+
+	</files>
+	
+	<config>
+		<fields name="params">
+		
+			<fieldset name="basicparameters" addfieldpath="/modules/mod_as_scroller/lib/header" label="Scroller Configuration Parameters">
+            <field type="spacer" label="&lt;script src='../modules/mod_as_scroller/scripts/jscolors/jscolor.js' type='text/javascript'&gt;&lt;/script&gt;" />
+            <field type="spacer" label="&lt;link rel='stylesheet' href='../modules/mod_as_scroller/css/admin.css' type='text/css' /&gt;" />
+
+				<field
+					name="scroller_width"
+					type="text"
+					default="100%"
+					label="Scroller area width (in %)"
+					description="Scroller area width, (in %, e.g. 100%)" >
+				</field>
+				<field
+					name="scroller_height"
+					type="text"
+					default="100px"
+					label="Scroller area height (in px)"
+					description="Scroller area height (in pixels, e.g. 100px)" >
+				</field>
+                <field name="scroller_bgcolor" 
+                    class="color {required:false}" 
+                    type="text" 
+                    default="" 
+                    label="Scroller background color" 
+                    description="Scroller background color" >					
+				</field>
+				<field
+					name="scroller_speed"
+					type="text"
+					default="1"
+					label="Scroller speed"
+					description="Scroller speed - pixel increment for each iteration of the movement" >
+				</field>
+				<field type="spacer" label="" />
+				<field type="spacer" label="" />
+												
+				<field name="Header1" type="header" default="Images" label="" description="" />
+				<field type="spacer" label="" />
+										
+				<field
+					name="scroller_folder"
+					type="text"
+					default="images"
+					size="70"
+					label="Images folder"
+					description="Path to the images folder relative to the site URL (e.g. images/sampledata/parks/landscape)" >
+				</field>
+				<field
+					name="scroller_usesubs"
+					type="radio"
+					default="0"
+					label="Subfolders"
+					description="Subfolders">
+					<option value="0">Ignore</option>
+					<option value="1">Include</option>
+				</field>
+				
+				<field type="spacer" label=" " />
+				<field type="spacer" label=" " />
+				
+				<field
+					name="scroller_randomizing"
+					type="radio"
+					default="0"
+					label="Randomize images"
+					description="Randomize images">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>				
+				<field
+					name="scroller_direction"
+					type="radio"
+					default="left"
+					label="Image scrolling direction"
+					description="Image scrolling direction">
+					<option value="left">Left</option>
+					<option value="right">Right</option>
+				</field>
+				
+				<field type="spacer" label=" " />
+				<field type="spacer" label=" " />
+				
+				<field
+					name="scroller_imgwidth"
+					type="text"
+					default=""
+					label="Image width"
+					description="This parameter will force all images to the specified width (in px)" >
+				</field>
+				<field
+					name="scroller_imgheight"
+					type="text"
+					default=""
+					label="Image height"
+					description="This parameter will force all images to the specified height (in px)" >
+				</field>
+				<field
+					name="scroller_imgspacing"
+					type="text"
+					default="3"
+					label="Space between images"
+					description="Space between images" >
+				</field>
+				<field
+					name="scroller_valignment"
+					type="list"
+					default="top"
+					label="Image vertical alignment"
+					description="Image vertical alignment">
+					<option value="top">Top</option>
+					<option value="middle">Middle</option>
+					<option value="bottom">Bottom</option>
+				</field>
+																	
+				<field type="spacer" label=" " />
+				<field type="spacer" label=" " />
+				
+				<field name="Header2" type="header" default="URLs" label="" description="" />
+				<field type="spacer" label="" />				
+
+				<field
+					name="scroller_urls"
+					type="textarea"
+					cols="40"
+					rows="10"
+					default=""
+					label="URLs"
+					description="By comma-separated URLs (e.g. index.php?option=com_contact, http://www.joomla.org)" >
+				</field>
+				<field
+					name="scroller_urlrepeat"
+					type="radio"
+					default="1"
+					label="Repeat URLs"
+					description="Repeat URLs secuency?">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="scroller_urltarget"
+					type="list"
+					default="0"
+					label="URLs target"
+					description="URLs target">
+					<option value="0">Parent window</option>
+					<option value="1">Blank window</option>
+				</field>
+
+				<field type="spacer" label=" " />
+				<field type="spacer" label=" " />
+				
+				<field name="Header3" type="header" default="On Mouse Actions" label="" description="" />
+				<field type="spacer" label="" />
+
+				<field
+					name="scroller_onmouseover"
+					type="list"
+					default="pause"
+					label="On mouse over"
+					description="On mouse over action">
+					<option value="pause">Pause</option>
+					<option value="false">None</option>
+				</field>
+				<field type="spacer" label=" " />
+				<field type="spacer" label=" " />
+				
+			</fieldset>
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+            <!-- Advanced Parameters-->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+            
+            <fieldset name="advancedparameters" addfieldpath="/modules/mod_as_slider/lib/header" label="Scroller Advanced Parameters">
+
+				<field type="spacer" label=" " />
+				<field type="spacer" label=" " />
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" >
+				</field>
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" >
+				</field>
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" >
+				</field>
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option value="itemid"></option>
+				</field>
+
+			</fieldset>
+			
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+            <!-- Custom Parameters-->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+            
+            <fieldset name="scrollercustomcss" addfieldpath="/modules/mod_as_scroller/lib/header" label="Scroller Custom Parameters">
+                
+                <field name="Header6" type="header" default="Custom CSS" label="" />
+                <field type="spacer" label=" " />
+                                
+                <field name="as_slider_css" 
+                    type="textarea" 
+                    default="" 
+                    label="Custom CSS" 
+                    description="You can put your css here" 
+                    cols="45" 
+                    rows="10" >
+                </field>
+            
+            </fieldset>
+						
+		</fields>
+	</config>
+</extension>

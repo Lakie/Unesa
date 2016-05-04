@@ -1,0 +1,371 @@
+/**************************************************************************************/
+/*
+/*		Designed by 'AS Designing'
+/*		Web: http://www.asdesigning.com
+/*		Web: http://www.astemplates.com
+/*		License: GNU/GPL
+/*
+/**************************************************************************************/
+
+
+hr
+{
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #333;
+}
+
+blockquote
+{
+	border-left: 5px solid #dddddd;
+}
+
+blockquote small
+{
+	color: #999999;
+}
+
+blockquote.pull-right
+{
+	border-right: 5px solid #eeeeee;
+}
+
+.item_img img,
+.category_img img,
+.item_fulltext img,
+.random-image img,
+aside .img-intro__left img,
+aside .img-intro__right img
+{
+}
+
+.menudesc img
+{
+	float: left;
+	margin: 0px 20px 10px 0px;
+}
+
+.footer-row-1 .item_img,
+.footer-row-1 .category_img,
+.footer-row-1 .item_fulltext img,
+.footer-row-1 .random-image img
+{
+	border: 1px solid #e1e4d9;
+}
+
+/**************************************************************************************/
+/*   Lists																			  */
+
+
+.categories-module li,
+.archive-module li
+{
+	background: url('../images/styles/default/li.style.png') left 11px no-repeat;
+}
+
+.categories-module li a,
+.archive-module li a
+{
+	color: #626262;
+}
+
+.categories-module li a:hover,
+.archive-module li a:hover
+{
+	color: #F93;
+}
+
+
+/**************************************************************************************/
+/*   Buttons																		  */
+
+
+
+a.btn:hover,
+.btn_info:hover,
+.btn-info:hover,
+.btn_info:active,
+.btn-info:active,
+.btn_info.active,
+.btn-info.active,
+.btn_info.disabled,
+.btn-info.disabled,
+.btn_info[disabled],
+.btn-info[disabled],
+.btn-primary:hover,
+.btn_primary:hover,
+.btn-primary:active,
+.btn_primary:active,
+.btn-primary.active,
+.btn_primary.active,
+.btn-primary.disabled,
+.btn_primary.disabled,
+.btn-primary[disabled],
+.btn_primary[disabled],
+.mod-newsflash a.readmore:hover,
+a.readmore:hover,
+.contentpane .button:hover
+{
+    background-color: #7589a6;
+    background-image: linear-gradient(to bottom, #7589a6, #90a1ba);
+}
+
+#component a.btn:hover,
+#component .btn_info:hover,
+#component .btn-info:hover,
+#component .btn_info:active,
+#component .btn-info:active,
+#component .btn_info.active,
+#component .btn-info.active,
+#component .btn_info.disabled,
+#component .btn-info.disabled,
+#component .btn_info[disabled],
+#component .btn-info[disabled],
+#component .btn-primary:hover,
+#component .btn_primary:hover,
+#component .btn-primary:active,
+#component .btn_primary:active,
+#component .btn-primary.active,
+#component .btn_primary.active,
+#component .btn-primary.disabled,
+#component .btn_primary.disabled,
+#component .btn-primary[disabled],
+#component .btn_primary[disabled],
+#component .mod-newsflash a.readmore:hover,
+#component a.readmore:hover,
+#component .contentpane .button:hover,
+#content-row-4 a.btn:hover,
+#content-row-4 .btn_info:hover,
+#content-row-4 .btn-info:hover,
+#content-row-4 .btn_info:active,
+#content-row-4 .btn-info:active,
+#content-row-4 .btn_info.active,
+#content-row-4 .btn-info.active,
+#content-row-4 .btn_info.disabled,
+#content-row-4 .btn-info.disabled,
+#content-row-4 .btn_info[disabled],
+#content-row-4 .btn-info[disabled],
+#content-row-4 .btn-primary:hover,
+#content-row-4 .btn_primary:hover,
+#content-row-4 .btn-primary:active,
+#content-row-4 .btn_primary:active,
+#content-row-4 .btn-primary.active,
+#content-row-4 .btn_primary.active,
+#content-row-4 .btn-primary.disabled,
+#content-row-4 .btn_primary.disabled,
+#content-row-4 .btn-primary[disabled],
+#content-row-4 .btn_primary[disabled],
+#content-row-4 .mod-newsflash a.readmore:hover,
+#content-row-4 a.readmore:hover,
+#content-row-4 .contentpane .button:hover
+{
+	background-position: bottom right;	
+}
+
+
+/**************************************************************************************/
+/*   Pagination																		  */
+
+
+.pagination ul li .pagenav
+{
+	color: #555555;
+}
+
+.pagination ul li span.pagenav
+{
+	color: #555555;
+}
+
+.pagination ul li a.pagenav
+{
+	color: #496A8B;
+}
+
+.pagination ul li a.pagenav:hover
+{
+	color: #626262;
+}
+
+.pagination ul li.num span.pagenav
+{
+	color: #626262;
+}
+
+
+/**************************************************************************************/
+/*   Toggling																		  */
+
+
+.toggle_content
+{
+    background-color: #FDFDFD;
+    border: 1px solid #DEDEDE;
+    color: #121212;	
+}
+
+
+/**************************************************************************************/
+/*   Newsflash																		  */
+
+
+.mod-newsflash-adv__links .item_content
+{
+	background-color: #e9e9e9;
+}
+
+.mod-newsflash-adv__links .item_content ul li a,
+.mod-newsflash-adv__links.support .item_introtext
+{
+	color: #7F7F7F;
+}
+
+.mod-newsflash-adv__links .item_content ul li a:hover
+{
+	color: #496A8B;
+}
+
+.mod-newsflash-adv__links a.readmore:hover
+{
+	color: #496A8B;
+}
+
+
+/**************************************************************************************/
+/*   Back to Top																	  */
+
+
+#back-top a
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color: #626262;
+}
+
+#back-top a:hover
+{
+	color: #626262;
+}
+
+#back-top span
+{
+	background-color: transparent;
+}
+
+
+/**************************************************************************************/
+/*   Gallery																		  */
+
+
+.page-gallery .item_title
+{
+	font-family: 'Tangerine', sans-serif;
+}
+
+.page-gallery a.zoom span.zoom-bg,
+.page-item__gallery a.zoom span.zoom-bg
+{
+	background-color: #000000;
+}
+
+#galleryOverlay
+{
+	background-image: url(../images/bg.gallery.png);
+}
+
+
+/**************************************************************************************/
+/*   Testimonials																	  */
+
+
+.blockquote
+{
+	background-image: url('../images/styles/default/blockquote.png');
+}
+
+
+/**************************************************************************************/
+/*   Header Row		  																  */
+
+
+#header-row .btn-search
+{
+	background-color: #FFFFFF !important;
+}
+
+#header-row .moduletable.call-now
+{
+	color: #F3F3F3;
+}
+
+#header-row .moduletable.call-now div
+{
+}
+
+#header-row .moduletable.call-now span
+{
+	color: #333333;
+}
+
+#logo span.slogan
+{
+	color: #333333;
+}
+
+.social ul li.border
+{
+	background-image: url(../images/styles/default/menu.li.border.png) !important;
+	background-repeat: repeat-y !important;
+	background-position: top center !important;
+}
+
+
+/**************************************************************************************/
+/*   Slider Row		  																  */
+
+
+.camera_caption a.readmore
+{
+	background-color: #496A8B;
+	background-image: -moz-linear-gradient(top, #496A8B, #496A8B);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#496A8B), to(#496A8B));
+	background-image: -webkit-linear-gradient(top, #496A8B, #496A8B);
+	background-image: -o-linear-gradient(top, #496A8B, #496A8B);
+	background-image: linear-gradient(to bottom, #496A8B, #496A8B);
+ 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffFD712D', endColorstr='#ff74B690', GradientType=0);
+}
+
+.camera_caption a.readmore:hover
+{
+	background-image: -moz-linear-gradient(top, #496A8B, #496A8B);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#496A8B), to(#496A8B));
+	background-image: -webkit-linear-gradient(top, #496A8B, #496A8B);
+	background-image: -o-linear-gradient(top, #496A8B, #496A8B);
+	background-image: linear-gradient(to bottom, #496A8B, #496A8B);
+ 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff74B690', endColorstr='#ff74B690', GradientType=0);
+}
+
+.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent, 
+.camera_wrap .camera_pag .camera_pag_ul li:hover
+{
+	background-color: #2a384e;
+}
+
+.camera_wrap .camera_pag .camera_pag_ul li
+{
+	background-color: #496A8B;
+}
+
+
+/**************************************************************************************/
+/*   Content
+/**************************************************************************************/
+/**************************************************************************************/
+
+
+/**************************************************************************************/
+/*   Footer
+/**************************************************************************************/
+/**************************************************************************************/
+
+
+
+

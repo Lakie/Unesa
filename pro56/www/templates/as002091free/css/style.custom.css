@@ -1,0 +1,16 @@
+/**************************************************************************************/
+/*
+/*		Designed by 'AS Designing'
+/*		Web: http://www.asdesigning.com
+/*		Web: http://www.astemplates.com
+/*		License: GNU/GPL
+/*
+/**************************************************************************************/
+
+
+.body-terms #component .page_header h2,
+.body-terms #component .category_title h2,
+.body-terms #component h2.item_title
+{
+	text-align: left;
+}

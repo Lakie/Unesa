@@ -1,0 +1,72 @@
+
+/***************************************************************************************/
+/*
+/*		Author: AS Designing
+/*		Author URI: http://www.asdesigning.com
+/*		Theme URI: http://www.astemplates.com
+/*		
+/*		Note: Design for Large desktop
+/*
+/***************************************************************************************/
+
+@media (max-width: 1199px) 
+{
+	
+	h1,
+	h2
+	{
+		font-size: 30px;
+	}
+
+	#header-top-row .mod-search_searchword
+	{
+		width: 230px;
+	}
+	
+	.social ul li.separator 
+	{
+		display: block;
+	}
+	
+	.social li a 
+	{
+		font-size: 12px;
+		height: 32px;
+		line-height: 34px;
+		margin-left: 2px;
+		padding-left: 2px;
+		width: 30px;
+	}	
+	
+	.slide_title
+	{
+		font-size: 100px;
+	}
+	
+	#camera-slideshow	
+	{
+		min-height: inherit;
+	}
+		
+	.camera_caption a.readmore
+	{
+		right: 60px;
+	}
+	
+	.mod-newsflash-adv__links .item_content ul li a
+	{
+		font-size: 12px;
+	}
+	
+	#as-menu ul.as-menu > li, 
+	#as-menu ul.as-menu > li:hover
+	{
+		padding: 0 30px;	
+	}	
+	
+	#phocagallery-module-ri .mosaic 
+	{
+		margin: 0 30px 10px 0;
+	}	
+	
+}

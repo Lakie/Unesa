@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>AS Superfish Menu</name>
+	<creationDate>2014-10-24</creationDate>
+	<updateDate>2014-10-24</updateDate>
+	<version>1.0.0</version>
+	<author>AS Designing</author>
+    <authorUrl>http://www.asdesigning.com</authorUrl>
+    <license>GNU/GPL</license>	
+	<version>1.0.0</version>
+	
+	<description>
+	<![CDATA[
+
+			The AS Superfish Menu module displays a main Joomla! template menu for desktop and mobile devices.<br />
+			
+			<br />Visit our site for more extensions: <a href="http://www.astemplates.com" target="_blank">http://www.astemplates.com</a>.
+			<br /><br />
+			
+			</span>
+			<br /><br />]]>
+	</description>
+		
+	<files>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+
+		<filename module="mod_as_superfish_menu">mod_as_superfish_menu.php</filename>
+		<filename>mod_as_superfish_menu.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_as_superfish_menu.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_as_superfish_menu.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+		
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- Basic Configuration Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+					
+			<fieldset name="basicoptions" label="Basic Options">
+				<field
+					name="menutype"
+					type="menu"
+					label="MOD_MENU_FIELD_MENUTYPE_LABEL"
+					description="MOD_MENU_FIELD_MENUTYPE_DESC" >
+				</field>
+				<field
+					name="startLevel"
+					type="list"
+					default="1"
+					label="MOD_MENU_FIELD_STARTLEVEL_LABEL"
+					description="MOD_MENU_FIELD_STARTLEVEL_DESC">
+						<option value="1">J1</option>
+						<option value="2">J2</option>
+						<option value="3">J3</option>
+						<option value="4">J4</option>
+						<option value="5">J5</option>
+						<option value="6">J6</option>
+						<option value="7">J7</option>
+						<option value="8">J8</option>
+						<option value="9">J9</option>
+						<option value="10">J10</option>
+				</field>
+				<field
+					name="endLevel"
+					type="list"
+					default="0"
+					label="MOD_MENU_FIELD_ENDLEVEL_LABEL"
+					description="MOD_MENU_FIELD_ENDLEVEL_DESC">
+						<option value="0">JALL</option>
+						<option value="1">J1</option>
+						<option value="2">J2</option>
+						<option value="3">J3</option>
+						<option value="4">J4</option>
+						<option value="5">J5</option>
+						<option value="6">J6</option>
+						<option value="7">J7</option>
+						<option value="8">J8</option>
+						<option value="9">J9</option>
+						<option value="10">J10</option>
+				</field>
+				<field
+					name="showAllChildren"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_MENU_FIELD_ALLCHILDREN_LABEL"
+					description="MOD_MENU_FIELD_ALLCHILDREN_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- Advanced Configuration Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			
+			<fieldset name="advanced" label="Advanced Options">
+				<field
+					name="tag_id"
+					type="text"
+					label="MOD_MENU_FIELD_TAG_ID_LABEL"
+					description="MOD_MENU_FIELD_TAG_ID_DESC" >
+				</field>
+				<field
+					name="class_sfx"
+					type="text"
+					label="MOD_MENU_FIELD_CLASS_LABEL"
+					description="MOD_MENU_FIELD_CLASS_DESC" >
+				</field>
+				<field
+					name="window_open"
+					type="text"
+					label="MOD_MENU_FIELD_TARGET_LABEL"
+					description="MOD_MENU_FIELD_TARGET_DESC" >
+				</field>
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" >
+				</field>
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					default="navigation"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" >
+				</field>
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+						<option value="1">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" >
+				</field>
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+						<option value="itemid"></option>
+				</field>
+			</fieldset>
+
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- Menu Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			
+			<fieldset name="menuoptions"  label="Menu Options">
+				<field 
+					name="sf-delay" 
+					type="text" 
+					default="500" 
+					label="SF_MOD_DELAY_LABEL" 
+					description="SF_MOD_DELAY_DESC">
+				</field>
+				<field 
+					name="sf-sticky" 
+					type="radio" 
+					class="btn-group" 
+					default="1" 
+					label="SF_MOD_STICKY_LABEL" 
+					description="SF_MOD_STICKY_DESC">
+						<option value="1">JENABLED</option>
+						<option value="0">JDISABLED</option>
+				</field>
+				<field type="spacer"></field>
+								
+				<field 
+					name="sf-dynamic" 
+					type="radio" 
+					class="btn-group" 
+					default="0" 
+					label="SF_MOD_DYNAMIC_LABEL" 
+					description="SF_MOD_DYNAMIC_DESC">
+						<option value="1">JENABLED</option>
+						<option value="0">JDISABLED</option>
+				</field>
+				<field 
+					name="sf-layout" 
+					type="list" 
+					default="hor" 
+					label="SF_MOD_LAYOUT_LABEL" 
+					description="SF_MOD_LAYOUT_DESC">
+						<option value="hor">SF_HORIZONTAL</option>
+						<option value="vert">SF_VERTICAL</option>
+				</field>
+				<field 
+					name="sf-onclick" 
+					type="radio" 
+					class="btn-group" 
+					default="0" 
+					label="SF_MOD_ONCLICK_LABEL" 
+					description="SF_MOD_ONCLICK_DESC">
+						<option value="1">JENABLED</option>
+						<option value="0">JDISABLED</option>
+				</field>
+				
+				<field type="spacer"></field>
+				<field type="spacer" label="SF_MOBILE_SETTINGS_LABEL"></field>
+				<field type="spacer"></field>
+
+				<field 
+					name="sf-mobiselect" 
+					type="radio" 
+					class="btn-group" 
+					default="0" 
+					label="SF_MOD_SELECT_LABEL" 
+					description="SF_MOD_SELECT_DESC">
+						<option value="1">JENABLED</option>
+						<option value="0">JDISABLED</option>
+				</field>
+				<field
+					name="sf-mobinavtext"
+					type="text"
+					default="Navigate to..."
+					label="SF_MOD_DEFAULT_TEXT"	>				
+				</field>
+				<field
+					name="sf-mobiclassname"
+					type="text"
+					default="select-menu"
+					label="SF_MOD_CLASSNAME" >				
+				</field>
+				<field
+					name="sf-mobisubclassname"
+					type="text"
+					default="sub-menu"
+					label="SF_MOD_SUBMENUCLASS"	>				
+				</field>
+				<field 
+					name="sf-mobisticky" 
+					type="radio" 
+					class="btn-group" 
+					default="0" 
+					label="SF_MOD_STICKY_MOBILE_LABEL" 
+					description="SF_MOD_STICKY_MOBILE_DESC">
+						<option value="1">JENABLED</option>
+						<option value="0">JDISABLED</option>
+				</field>
+				
+			</fieldset>
+		</fields>
+	</config>
+</extension>

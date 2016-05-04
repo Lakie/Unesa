@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3" client="site" method="upgrade">
+	<name>AS Contact Form</name>
+	<creationDate>2014-11-20</creationDate>
+	<updateDate>2014-11-20</updateDate>
+	<version>1.0.0</version>
+	<author>AS Designing</author>
+    <authorUrl>http://www.asdesigning.com</authorUrl>
+    <license>GNU/GPL</license>	
+	<version>1.0.0</version>
+	
+	<description>
+	<![CDATA[
+
+			AS Contact Form allows visitors to contact your site administrator by e-mail very fast and secure.<br />
+			<strong>To use captcha facility, you need to make registration at <a href='https://www.google.com/recaptcha/admin' target='_blank'>
+			https://www.google.com/recaptcha/admin</a> and get public and private keys.</strong><br />
+			
+			<br />Visit our site for more extensions and templates: <a href="http://www.astemplates.com" target="_blank">http://www.astemplates.com</a>.
+			<br /><br />
+			
+			</span>
+			<br /><br />]]>
+	</description>
+	
+	
+	<files>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+
+		<filename module="mod_as_contact_form">mod_as_contact_form.php</filename>
+		<filename>mod_as_contact_form.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>recaptchalib.php</filename>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_as_contact_form.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_as_contact_form.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+		
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- Basic Configuration Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+					
+			<fieldset name="basicoptions" label="Basic Options">
+				<field type="spacer" label="&lt;link rel='stylesheet' href='../modules/mod_as_contact_form/css/mod.admin.css' type='text/css' /&gt;" />
+				<field 
+					name="pre-text" 
+					type="textarea"
+					rows="5"
+					cols="50"
+					label="Pretext" 
+					description="Please input text you want to display before module content, does not support any HTML tags." 
+					default=""
+					required="true" >
+				</field>
+				<field 
+					name="email_req" 
+					type="radio" 
+					class="btn-group" 
+					default="required" 
+					label="MOD_ASCONTACT_FORM_FIELD_EMAIL_REQUIRE_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_EMAIL_REQUIRE_DESC">
+						<option	value="required">JYES</option>
+						<option	value=" ">JNO</option>
+				</field>
+				<field 
+					name="phone_req" 
+					type="radio" 
+					class="btn-group" 
+					default="required" 
+					label="MOD_ASCONTACT_FORM_FIELD_PHONE_REQUIRE_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_PHONE_REQUIRE_DESC">
+						<option	value="required">JYES</option>
+						<option	value=" ">JNO</option>
+				</field>
+				<field 
+					name="admin_email" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_ADMIN_EMAIL_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_ADMIN_EMAIL_DESC" 
+					default=""
+					required="true" >
+				</field>
+				<field 
+					name="cc_email" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_CC_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_CC_DESC" 
+					default="" >
+				</field>
+				<field 
+					name="bcc_email" 
+					type="text" 
+					description="MOD_ASCONTACT_FORM_FIELD_BCC_DESC" 
+					label="MOD_ASCONTACT_FORM_FIELD_BCC_LABEL"
+					default="" >
+				</field>
+				<field type="spacer"></field>
+
+				<field 
+					name="success_notify" 
+					type="textarea"
+					rows="5"
+					cols="50"
+					label="MOD_ASCONTACT_FORM_FIELD_SUCCESS_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_SUCCESS_DESC" 
+					default="Thank You! Your message has been sent" >
+				</field>
+				<field 
+					name="failure_notify"
+					type="textarea"
+					rows="5"
+					cols="50"
+					label="MOD_ASCONTACT_FORM_FIELD_ERROR_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_ERROR_DESC" 
+					default="Something went wrong, please try again later" >
+				</field>
+				<field 
+					name="errors_position" 
+					type="list" 
+					class="btn-group" 
+					default="right-top" 
+					label="MOD_ASCONTACT_FORM_FIELD_ERROR_POS_LABEL"
+					description="MOD_ASCONTACT_FORM_FIELD_ERROR_POS_DESC" >
+						<option	value="top-left">top-left</option>
+						<option	value="top-center">top-center</option>
+						<option	value="top-right">top-right</option>
+						<option	value="right-top">right-top</option>
+						<option	value="right-center">right-center</option>
+						<option	value="right-bottom">right-bottom</option>
+						<option	value="bottom-right">bottom-right</option>
+						<option	value="bottom-center">bottom-center</option>
+						<option	value="bottom-left">bottom-left</option>
+						<option	value="left-bottom">left-bottom</option>
+						<option	value="left-center">left-center</option>
+						<option	value="left-top">left-top</option>
+				</field>
+				<field type="spacer"></field>
+
+				<field 
+					name="email_publish" 
+					type="radio" 
+					class="btn-group" 
+					default="1" 
+					label="MOD_ASCONTACT_FORM_FIELD_EMAIL_PUBLISH_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_EMAIL_PUBLISH_DESC">
+						<option	value="1">JYES</option>
+						<option	value="0">JNO</option>
+				</field>
+				<field 
+					name="phone_publish" 
+					type="radio" 
+					class="btn-group" 
+					default="1" 
+					label="MOD_ASCONTACT_FORM_FIELD_PHONE_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_PHONE_DESC">
+						<option	value="1">JYES</option>
+						<option	value="0">JNO</option>
+				</field>
+				<field 
+					name="subject_publish" 
+					type="radio" 
+					class="btn-group" 
+					default="1" 
+					label="MOD_ASCONTACT_FORM_FIELD_SUBJECT_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_SUBJECT_DESC">
+						<option	value="1">JYES</option>
+						<option	value="0">JNO</option>
+				</field>
+				<field 
+					name="clear_publish" 
+					type="radio" 
+					class="btn-group" 
+					default="1" 
+					label="MOD_ASCONTACT_FORM_FIELD_CLEAR_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_CLEAR_DESC">
+						<option	value="1">JYES</option>
+						<option	value="0">JNO</option>
+				</field>
+				<field type="spacer"></field>
+				
+				<field 
+					name="name_name" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_NAME_NAME_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_NAME_NAME_DESC" 
+					default="Name" >
+				</field>
+				<field 
+					name="email_name" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_EMAIL_NAME_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_EMAIL_NAME_DESC" 
+					default="Email" >
+				</field>
+				<field 
+					name="phone_name" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_PHONE_NAME_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_PHONE_NAME_DESC" 
+					default="Phone" >
+				</field>
+				<field 
+					name="subject_name" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_SUBJECT_NAME_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_SUBJECT_NAME_DESC" 
+					default="Subject">
+				</field>
+				<field 
+					name="message_name" 
+					type="text" 
+					label="MOD_ASCONTACT_FORM_FIELD_MESSAGE_NAME_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_MESSAGE_NAME_DESC" 
+					default="Message" >
+				</field>
+				<field 
+					name="clearbtn_name" 
+					type="text" 
+					description="MOD_ASCONTACT_FORM_FIELD_CLEAR_NAME_LABEL" 
+					label="MOD_ASCONTACT_FORM_FIELD_CLEAR_NAME_DESC" 
+					default="Clear" >
+				</field>
+				<field 
+					name="submitbtn_name" 
+					type="text" 
+					description="MOD_ASCONTACT_FORM_FIELD_SUBMIT_NAME_LABEL" 
+					label="MOD_ASCONTACT_FORM_FIELD_SUBMIT_NAME_DESC" 
+					default="Send" >
+				</field>
+				<field 
+					name="labels_pos" 
+					type="radio" 
+					class="btn-group" 
+					default="1" 
+					label="MOD_ASCONTACT_FORM_FIELD_LABELS_POS_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_LABELS_POS_DESC">
+						<option	value="1">MOD_ASCONTACT_FORM_FIELD_INSIDE</option>
+						<option	value="0">MOD_ASCONTACT_FORM_FIELD_OUTSIDE</option>
+				</field>
+			</fieldset>	
+
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- CAPTCHA Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			
+			<fieldset name="captchaoptions" label="CAPTCHA Options">
+				<field type="spacer"></field>
+				<field 
+					name="captcha_req" 
+					type="radio" 
+					class="btn-group" 
+					default="0" 
+					label="MOD_ASCONTACT_FORM_FIELD_CAPTCHA_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_CAPTCHA_DESC">
+						<option	value="1">JYES</option>
+						<option	value="0">JNO</option>
+				</field>
+				<field 
+					name="public_key" 
+					type="text" 
+					description="MOD_ASCONTACT_FORM_FIELD_PUB_KEY_DESC" 
+					label="MOD_ASCONTACT_FORM_FIELD_PUB_KEY_LABEL" 
+					default="" >
+				</field>
+				<field 
+					name="private_key" 
+					type="text" 
+					description="MOD_ASCONTACT_FORM_FIELD_PRIV_KEY_DESC" 
+					label="MOD_ASCONTACT_FORM_FIELD_PRIV_KEY_LABEL" 
+					default="" >
+				</field>
+				<field 
+					name="captcha_theme" 
+					type="list" 
+					class="btn-group" 
+					default="red" 
+					label="MOD_ASCONTACT_FORM_FIELD_CAPTCHA_THEME_LABEL" 
+					description="MOD_ASCONTACT_FORM_FIELD_CAPTCHA_THEME_DESC">
+						<option	value="red">MOD_ASCONTACT_FORM_FIELD_CAPTCHA_RED_LABEL</option>
+						<option	value="white">MOD_ASCONTACT_FORM_FIELD_CAPTCHA_WHITE_LABEL</option>
+						<option	value="blackglass">MOD_ASCONTACT_FORM_FIELD_CAPTCHA_BLACK_LABEL</option>
+						<option	value="clean">MOD_ASCONTACT_FORM_FIELD_CAPTCHA_CLEAN_LABEL</option>
+				</field>
+				<field type="spacer"></field>
+				
+				<field 
+					name="captcha_failure_notify" 
+					type="textarea"
+					rows="5"
+					cols="50"
+					description="MOD_ASCONTACT_FORM_FIELD_CAPTCHA_ERROR_DESC" 
+					label="MOD_ASCONTACT_FORM_FIELD_CAPTCHA_ERROR_LABEL" 
+					default="Please enter a correct CAPTCHA answer" >
+				</field>
+			</fieldset>
+							
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- Advanced Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			
+			<fieldset name="advanced" label="Advanced Options">
+				<field type="spacer"></field>
+				<field 
+					name="moduleclass_sfx" 
+					type="text" 
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" 
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" >
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

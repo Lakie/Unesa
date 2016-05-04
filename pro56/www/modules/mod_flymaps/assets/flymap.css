@@ -1,0 +1,115 @@
+#constructor {
+	width:100%;
+	height:300px;
+	position:relative;
+	margin-bottom:10px;
+	box-sizing:border-box;
+	border:1px solid #ccc;
+	overflow:hidden;
+	padding:15px;
+}
+
+#constructor #map {
+	width:100%;
+	height:300px;
+	padding:0;
+	margin:0;
+	position:absolute;
+	top:0;
+	left:0;
+
+}
+#constructor textarea {
+	padding:10px;
+	box-sizing:border-box;
+	width:90%;
+	height:100px; 
+	padding:5px;
+	margin:10px 0;
+}
+
+#constructor #map {
+	z-index:1;
+}
+
+#constructor.json-edit #map {
+	display:none;
+}
+
+#controls button { margin-right:10px;}
+
+button.btn-success {
+	background-color: #5BB75B;
+	background-image: -moz-linear-gradient(top,#62c462,#51a351);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#62C462),to(#51A351));
+	background-image: -webkit-linear-gradient(top,#62C462,#51A351);
+	background-image: -o-linear-gradient(top,#62c462,#51a351);
+	background-image: linear-gradient(to bottom,#62C462,#51A351);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+	border-color: #51A351 #51A351 #387038;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.ctrl1 {
+	width:70%;
+	float:left;
+}
+.ctrl2 {
+	width:29%;
+	float:left;
+	text-align:right;
+}
+	
+#jform_params_object_data {
+	width:100%;
+	box-sizing:border-box;
+}
+
+#add-placemark {
+	height: 100%;
+	box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.9);
+	top:0;
+	position: absolute;
+	z-index: 1;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+	padding:10px;
+}
+#add-placemark {
+	line-height:18px;
+	font-size:14px;
+}
+#add-placemark input {
+	height:24px;
+	width:200px;
+	line-height:18px;
+	padding:2px 5px;
+	box-sizing:border-box;
+	margin:2px 0;
+	float: none;
+}
+
+#add-placemark textarea {
+	width:200px;
+	line-height:18px;
+	padding:2px 5px;
+	box-sizing:border-box;
+	margin:2px 0;
+	height:50px;
+	float: none;
+}
+
+#add-placemark select {
+	width:200px;
+	height:24px;
+	line-height:18px;
+	padding:2px 5px;
+	box-sizing:border-box;
+	margin:2px 0;
+	display:block;
+	float: none;
+}
+
+#add-placemark input[type=submit] {
+	margin-top:10px;
+}

@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>AS ArtSlider</name>
+	<creationDate>2013-01-25</creationDate>
+	<updateDate>2013-01-25</updateDate>
+	<version>1.0.0</version>
+	<author>AS Designing</author>
+    <authorUrl>http://www.asdesigning.com</authorUrl>
+    <copyright>AS Designing - All rights reserved</copyright>
+    <license>GNU/GPL</license>	
+	
+	<description>
+	<![CDATA[
+
+			<img src="../modules/mod_as_menu/extension_thumbnail.png" align="left" style="margin: 0px 10px 10px 0px;" />
+			
+			<h1>AS ArtSlider</h1>
+			The AS ArtSlider module is a combination of default Joomla Articles Newsflash module and Camera Slideshow jQuery plugin.<br />
+			
+			<br />Visit our site for more extensions: <a href="http://www.astemplates.com" target="_blank">http://www.astemplates.com</a>.
+			<br /><br />
+			
+			</span>
+			<br /><br />]]>
+	</description>
+		
+	<files>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+
+		<filename module="mod_as_artslider">mod_as_artslider.php</filename>		
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_as_artslider.xml</filename>
+		<filename>extension_thumbnail.png</filename>		
+	</files>
+	
+	<config>
+		<fields name="params">
+		
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+			<!-- Basic Configuration Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+		
+			<fieldset name="basicoptions" label="Basic Options">
+				<field 
+					name="category_id"
+					type="category"
+					extension="com_content"
+					multiple="true"
+					default=""
+					size="10"
+					label="Category"
+					description="Select category with articles for the slider. If no selection will show all categories as default." >
+						<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+				<field 
+					name="show_image"
+					type="radio"
+					default="1"
+					class="btn-group"
+					label="Show Article Image"
+					description="Show Article Images">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>
+				<field
+					name="show_title"
+					type="radio"
+					default="1"
+					class="btn-group"
+					label="Show Article Title"
+					description="Show/Hide Article Title">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>
+				<field type="spacer" label="&lt;script src='../modules/mod_as_artslider/js/jscolors/jscolor.js'
+				                            type='text/javascript'&gt;&lt;/script&gt;" />
+				
+				<field 
+					name="title_heading"
+					type="list"
+					default="h2"
+					label="Header Level"
+					description="Article header HTML title level">
+						<option value="h1">JH1</option>
+						<option value="h2">JH2</option>
+						<option value="h3">JH3</option>
+						<option value="h4">JH4</option>
+						<option value="h5">JH5</option>
+				</field>
+				<field name="title_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Title Color" 
+					description="Title font color">
+				</field>
+				<field name="firstword_title_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="1st Word Color" 
+					description="First word title font color, if not a title">
+				</field>
+				<field name="secondword_title_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="2nd Word Color" 
+					description="Second word title font color, if not a title">
+				</field>												
+				<field
+					name="link_titles"
+					type="list"
+					label="Linked Titles"
+					description="Link the Title Article to Article">
+						<option value="">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				<field name="link_title_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Link Color" 
+					description="Link title font color">
+				</field>	
+				<field name="link_hover_title_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Link Hover Color" 
+					description="Link hover title font color">
+				</field>																
+				<field type="spacer" label=" " />
+				
+				<field
+					name="readmore"
+					type="radio"
+					default="0"
+					class="btn-group"
+					label="'Read more...' Button"
+					description="Show 'Read more...' link to the Main text of an Article">
+						<option value="0">JHIDE</option>
+						<option value="1">JSHOW</option>
+				</field>
+				<field
+					name="readmore_txt"
+					type="text"
+					default="Read More"
+					label="Alternative Text"
+					description="Alternative text to the Read More button" >
+				</field>
+				<field name="readmore_gradient_topcolor" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Gradient Top Color" 
+					description="Button linear gradient top color">
+				</field>																
+				<field name="readmore_gradient_bottomcolor" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Gradient Bottom Color" 
+					description="Button linear gradient bottom color">
+				</field>																
+				<field name="readmore_bgcolor" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Background Color" 
+					description="Button background color">
+				</field>
+				<field name="readmore_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Font Color" 
+					description="Button font color">
+				</field>																				
+
+				<field type="spacer" label=" " />
+								
+				<field
+					name="articles_num"
+					type="text"
+					default="3"
+					label="Number of Articles"
+					description="The number of Articles to display in this module" >
+				</field>					
+				<field
+					name="ordering"
+					type="list"
+					default="a.publish_up"
+					label="Ordering"
+					description="Select articles ordering">
+						<option value="a.publish_up">Published Date</option>
+						<option value="a.created">Created Date</option>
+						<option value="a.ordering">Ordering</option>
+						<option value="rand()">Random</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="advanced" label="Advanced Options">
+				<field 
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" >
+				</field>
+				<field 
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" >
+				</field>
+				<field 
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+						<option value="1">JGLOBAL_USE_GLOBAL</option>
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+								
+				<field 
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" >
+				</field>
+				<field 
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+						<option value="itemid"></option>
+				</field>
+			</fieldset>
+
+			<fieldset name="slideroptions" label="Slider Settings">
+				<field
+					name="slider_style"
+					type="list"
+					default="0"
+					label="Slider Style"
+					description="To use 'custom' style you should have 'ext.artslider.css' style pleaced to your template CSS directory">
+						<option value="0">default</option>
+						<option value="1">custom</option>
+				</field>
+				<field type="spacer" label=" " />
+
+				<field 
+					name="slider_alignment" 
+					type="list" 
+					default="center" 
+					label="Alignment" 
+					description="Select slider alignment">
+						<option value="center">center</option>
+						<option value="topLeft">top left</option>
+						<option value="topCenter">top center</option>
+						<option value="topRight">top right</option>
+						<option value="centerLeft">center left</option>
+						<option value="centerRight">center right</option>
+						<option value="bottomLeft">bottom left</option>
+						<option value="bottomLeft">bottom center</option>
+						<option value="bottomRight">bottom right</option>
+				</field>
+				<field 
+					name="slider_height" 
+					type="text" 
+					default="50%" 
+					label="Height" 
+					description="Slider Height">
+				</field>
+				<field type="spacer" label=" " />
+
+				<field 
+					name="slider_autoplay" 
+					type="radio" 
+					default="1" 
+					class="btn-group"
+					label="Autoplay" 
+					description="Select if you want to enable or disable automatic slides change">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field 
+					name="slider_mobi_autoplay" 
+					type="radio" 
+					default="0" 
+					class="btn-group"						
+					label="Mobile Autoplay" 
+					description="Select if you want to enable or disable automatic slides change for mobile devices">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field type="spacer" label=" " />
+
+				<field 
+					name="slider_columns" 
+					type="text" 
+					default="6" 
+					label="Number of Columns" 
+					description="Number of animation columns">
+				</field>
+				<field name="slider_rows" 
+					type="text" 
+					default="4" 
+					label="Number of Rows" 
+					description="Number of animation rows">
+				</field>
+				<field 
+					name="slider_slicedcols" 
+					type="text" 
+					default="6" 
+					label="Sliced Columns" 
+					description="Sliced animation columns. If set to 0 the same value as columns">
+				</field>
+				<field 
+					name="slider_slicedrows" 
+					type="text" 
+					default="4" 
+					label="Sliced Rows" 
+					description="Sliced animation rows. If set to 0 the same value as rows">
+				</field>
+				<field type="spacer" label=" " />
+
+				<field 
+					name="slider_easing" 
+					type="list" 
+					default="easeInOutExpo" 
+					label="Easing Animation" 
+					description="Select easing animation effect here">
+						<option value="linear">linear</option>
+						<option value="swing">swing</option>
+						<option value="easeInQuad">easeInQuad</option>
+						<option value="easeOutQuad">easeOutQuad</option>
+						<option value="easeInOutQuad">easeInOutQuad</option>
+						<option value="easeInCubic">easeInCubic</option>
+						<option value="easeOutCubic">easeOutCubic</option>
+						<option value="easeInOutCubic">easeInOutCubic</option>
+						<option value="easeInQuart">easeInQuart</option>
+						<option value="easeOutQuart">easeOutQuart</option>
+						<option value="easeInOutQuart">easeInOutQuart</option>
+						<option value="easeInQuint">easeInQuint</option>
+						<option value="easeOutQuint">easeOutQuint</option>
+						<option value="easeInOutQuint">easeInOutQuint</option>
+						<option value="easeInSine">easeInSine</option>
+						<option value="easeOutSine">easeOutSine</option>
+						<option value="easeInOutSine">easeInOutSine</option>
+						<option value="easeInExpo">easeInExpo</option>
+						<option value="easeOutExpo">easeOutExpo</option>
+						<option value="easeInOutExpo">easeInOutExpo</option>
+						<option value="easeInCirc">easeInCirc</option>
+						<option value="easeOutCirc">easeOutCirc</option>
+						<option value="easeInOutCirc">easeInOutCirc</option>
+						<option value="easeInElastic">easeInElastic</option>
+						<option value="easeOutElastic">easeOutElastic</option>
+						<option value="easeInOutElastic">easeInOutElastic</option>
+						<option value="easeInBack">easeInBack</option>
+						<option value="easeOutBack">easeOutBack</option>
+						<option value="easeInOutBack">easeInOutBack</option>
+						<option value="easeInBounce">easeInBounce</option>
+						<option value="easeOutBounce">easeOutBounce</option>
+						<option value="easeInOutBounce">easeInOutBounce</option>
+				</field>
+
+				<field name="slider_mobieasing" 
+					type="list" 
+					default="easeInOutExpo" 
+					label="Mobile Easing" 
+					description="Select mobile easing animation effect here">
+						<option value="linear">linear</option>
+						<option value="swing">swing</option>
+						<option value="easeInQuad">easeInQuad</option>
+						<option value="easeOutQuad">easeOutQuad</option>
+						<option value="easeInOutQuad">easeInOutQuad</option>
+						<option value="easeInCubic">easeInCubic</option>
+						<option value="easeOutCubic">easeOutCubic</option>
+						<option value="easeInOutCubic">easeInOutCubic</option>
+						<option value="easeInQuart">easeInQuart</option>
+						<option value="easeOutQuart">easeOutQuart</option>
+						<option value="easeInOutQuart">easeInOutQuart</option>
+						<option value="easeInQuint">easeInQuint</option>
+						<option value="easeOutQuint">easeOutQuint</option>
+						<option value="easeInOutQuint">easeInOutQuint</option>
+						<option value="easeInSine">easeInSine</option>
+						<option value="easeOutSine">easeOutSine</option>
+						<option value="easeInOutSine">easeInOutSine</option>
+						<option value="easeInExpo">easeInExpo</option>
+						<option value="easeOutExpo">easeOutExpo</option>
+						<option value="easeInOutExpo">easeInOutExpo</option>
+						<option value="easeInCirc">easeInCirc</option>
+						<option value="easeOutCirc">easeOutCirc</option>
+						<option value="easeInOutCirc">easeInOutCirc</option>
+						<option value="easeInElastic">easeInElastic</option>
+						<option value="easeOutElastic">easeOutElastic</option>
+						<option value="easeInOutElastic">easeInOutElastic</option>
+						<option value="easeInBack">easeInBack</option>
+						<option value="easeOutBack">easeOutBack</option>
+						<option value="easeInOutBack">easeInOutBack</option>
+						<option value="easeInBounce">easeInBounce</option>
+						<option value="easeOutBounce">easeOutBounce</option>
+						<option value="easeInOutBounce">easeInOutBounce</option>
+				</field>
+				<field 
+					name="slider_animation" 
+					type="list" 
+					default="random" 
+					label="Animation Effect" 
+					description="Select animation effect here">
+						<option value="random">random</option>
+						<option value="simpleFade">simpleFade</option>
+						<option value="curtainTopLeft">curtainTopLeft</option>
+						<option value="curtainTopRight">curtainTopRight</option>
+						<option value="curtainBottomLeft">curtainBottomLeft</option>
+						<option value="curtainBottomRight">curtainBottomRight</option>
+						<option value="curtainSliceLeft">curtainSliceLeft</option>
+						<option value="curtainSliceRight">curtainSliceRight</option>
+						<option value="blindCurtainTopLeft">blindCurtainTopLeft</option>
+						<option value="blindCurtainTopRight">blindCurtainTopRight</option>
+						<option value="blindCurtainBottomLeft">blindCurtainBottomLeft</option>
+						<option value="blindCurtainBottomRight">blindCurtainBottomRight</option>
+						<option value="blindCurtainSliceBottom">blindCurtainSliceBottom</option>
+						<option value="blindCurtainSliceTop">blindCurtainSliceTop</option>
+						<option value="stampede">stampede</option>
+						<option value="mosaic">mosaic</option>
+						<option value="mosaicReverse">mosaicReverse</option>
+						<option value="mosaicRandom">mosaicRandom</option>
+						<option value="mosaicSpiral">mosaicSpiral</option>
+						<option value="mosaicSpiralReverse">mosaicSpiralReverse</option>
+						<option value="topLeftBottomRight">topLeftBottomRight</option>
+						<option value="bottomRightTopLeft">bottomRightTopLeft</option>
+						<option value="bottomLeftTopRight">bottomLeftTopRight</option>
+						<option value="bottomLeftTopRight">bottomLeftTopRight</option>
+				</field>
+				<field 
+					name="slider_mobianimation"
+					type="list" 
+					default="simpleFade" 
+					label="Mobile Animation" 
+					description="Select mobile easing animation effect here.">
+						<option value="random">random</option>
+						<option value="simpleFade">simpleFade</option>
+						<option value="curtainTopLeft">curtainTopLeft</option>
+						<option value="curtainTopRight">curtainTopRight</option>
+						<option value="curtainBottomLeft">curtainBottomLeft</option>
+						<option value="curtainBottomRight">curtainBottomRight</option>
+						<option value="curtainSliceLeft">curtainSliceLeft</option>
+						<option value="curtainSliceRight">curtainSliceRight</option>
+						<option value="blindCurtainTopLeft">blindCurtainTopLeft</option>
+						<option value="blindCurtainTopRight">blindCurtainTopRight</option>
+						<option value="blindCurtainBottomLeft">blindCurtainBottomLeft</option>
+						<option value="blindCurtainBottomRight">blindCurtainBottomRight</option>
+						<option value="blindCurtainSliceBottom">blindCurtainSliceBottom</option>
+						<option value="blindCurtainSliceTop">blindCurtainSliceTop</option>
+						<option value="stampede">stampede</option>
+						<option value="mosaic">mosaic</option>
+						<option value="mosaicReverse">mosaicReverse</option>
+						<option value="mosaicRandom">mosaicRandom</option>
+						<option value="mosaicSpiral">mosaicSpiral</option>
+						<option value="mosaicSpiralReverse">mosaicSpiralReverse</option>
+						<option value="topLeftBottomRight">topLeftBottomRight</option>
+						<option value="bottomRightTopLeft">bottomRightTopLeft</option>
+						<option value="bottomLeftTopRight">bottomLeftTopRight</option>
+						<option value="bottomLeftTopRight">bottomLeftTopRight</option>
+				</field>
+				<field type="spacer" label=" " />
+				
+				<field 
+					name="slider_grid_diff" 
+					type="text" 
+					default="250" 
+					label="Grid Difference" 
+					description="To make the grid blocks slower than the slices, this value must be smaller than Transition Period">
+				</field>
+				<field 
+					name="slider_grid_opacity" 
+					type="radio" 
+					default="0" 
+					class="btn-group"	
+					label="Grid Opacity" 
+					description="Decide to apply a fade effect to blocks and slices, 
+					if your slideshow is fullscreen or simply big, we recommend to set it to NO in case to have a smoother effect">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field 
+					name="slider_showtime" 
+					type="text" 
+					default="5000" 
+					label="Image Show Time" 
+					description="How long each slide will be shown (msc)">
+				</field>
+				<field 
+					name="slider_transperiod" 
+					type="text" 
+					default="500" 
+					label="Transition Period" 
+					description="Slide transition period">		
+				</field>	
+				<field type="spacer" label=" " />
+
+				<field 
+					name="slider_pause" 
+					type="radio" 
+					default="1"
+					class="btn-group" 
+					label="Pause on Hover" 
+					description="Puase on mouse hover. Not available for mobile devices.">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field 
+					name="slider_stop" 
+					type="radio" 
+					default="0" 
+					class="btn-group"
+					label="Stop on Click" 
+					description="Stop slider on mouse click">
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>				
+				<field type="spacer" label=" " />
+				
+				<field 
+					name="slider_pagination" 
+					type="radio" 
+					default="1" 
+					class="btn-group"
+					label="Pagination Controls" 
+					description="Show slider pagination">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>
+                <field name="slider_pagination_radius" 
+                    type="list" 
+                    default="14px" 
+                    label="Pagination Radius" 
+                    description="Pagination radius">
+                        <option value="0px">0px</option>
+                        <option value="1px">1px</option>
+                        <option value="2px">2px</option>
+                        <option value="3px">3px</option>
+                        <option value="4px">4px</option>
+                        <option value="5px">5px</option>
+                        <option value="6px">6px</option>
+                        <option value="7px">7px</option>
+                        <option value="8px">8px</option>
+                        <option value="9px">9px</option>
+                        <option value="10px">10px</option>
+                </field>				
+				<field name="slider_pagination_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Pagination Color" 
+					description="Pagination color">
+				</field>
+				<field name="slider_pagination_hovercolor" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Pagination Hover Color" 
+					description="Pagination hover color">
+				</field>
+				<field type="spacer" label=" " />
+																
+				<field 
+					name="slider_navigation" 
+					type="radio" 
+					default="0" 
+					class="btn-group"
+					label="Navigation Controls" 
+					description="Show navigation controls (prev/next)">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>
+				<field 
+					name="slider_hover_navigation" 
+					type="radio" 
+					default="0" 
+					class="btn-group"
+					label="Navigation on Hover" 
+					description="Show navigation controls on mouse hover (prev/next)">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>								
+				<field 
+					name="slider_play_pause" 
+					type="radio" 
+					default="0" 
+					class="btn-group"
+					label="Play/Pause Controls" 
+					description="Select if you want to show play and pause buttons">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>
+				<field type="spacer" label=" " />
+
+				<field
+					name="slider_caption"
+					type="radio"
+					default="1"
+					class="btn-group"
+					label="Slider Caption"
+					description="Show or Hide the slider caption">
+						<option value="1">JSHOW</option>
+						<option value="0">JHIDE</option>
+				</field>
+				<field name="slider_caption_color" 
+					class="color {required:false}" 
+					type="text" 
+					default="" 
+					label="Caption Font Color" 
+					description="Caption text font color">
+				</field>					
+                <field name="slider_caption_fontsize" 
+                    type="list" 
+                    default="14px" 
+                    label="Caption Font Size" 
+                    description="Select a caption font size here">
+                        <option value="10px">10px</option>
+                        <option value="11px">11px</option>
+                        <option value="12px">12px</option>
+                        <option value="13px">13px</option>
+                        <option value="14px">14px</option>
+                        <option value="15px">15px</option>
+                        <option value="16px">16px</option>
+                        <option value="17px">17px</option>
+                        <option value="18px">18px</option>
+                        <option value="19px">19px</option>
+                        <option value="20px">20px</option>
+                        <option value="21px">21px</option>
+                        <option value="22px">22px</option>
+                        <option value="23px">23px</option>
+                        <option value="24px">24px</option>
+                        <option value="25px">25px</option>
+                        <option value="26px">26px</option>
+                        <option value="27px">27px</option>
+                        <option value="28px">28px</option>
+                        <option value="29px">29px</option>
+                        <option value="30px">30px</option>
+                        <option value="31px">31px</option>
+                        <option value="32px">32px</option>
+                        <option value="33px">33px</option>
+                        <option value="34px">34px</option>
+                        <option value="35px">35px</option>
+                        <option value="36px">36px</option>
+						<option value="38px">38px</option>
+						<option value="40px">40px</option>
+						<option value="42px">42px</option>
+						<option value="44px">44px</option>
+						<option value="46px">46px</option>
+						<option value="48px">48px</option>
+						<option value="50px">50px</option>
+						<option value="52px">52px</option>
+                </field>
+				<field 
+					name="slider_caption_animation" 
+					type="list" 
+					default="fadeIn" 
+					label="Caption Animation" 
+					description="Select caption animation">
+						<option value="moveFromLeft">moveFromLeft</option>
+						<option value="moveFomRight">moveFomRight</option>
+						<option value="moveFromTop">moveFromTop</option>
+						<option value="moveFromBottom">moveFromBottom</option>
+						<option value="fadeIn">fadeIn</option>
+						<option value="fadeFromLeft">fadeFromLeft</option>
+						<option value="fadeFromRight">fadeFromRight</option>
+						<option value="fadeFromTop">fadeFromTop</option>
+						<option value="fadeFromBottom">fadeFromBottom</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

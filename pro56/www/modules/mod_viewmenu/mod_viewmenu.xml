@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" method="upgrade">
+	<name>mod_viewmenu</name>
+	<creationDate>04-2006</creationDate>
+	<author>viewmenu</author>
+	<authorEmail>qwerty@qwerty.ru</authorEmail>
+	<authorUrl>http://www.qwerty.ru</authorUrl>
+	<copyright>Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.</copyright>
+	<license>license GNU/GPL: http://www.gnu.org/copyleft/gpl.html </license>
+	<version>1.0.0</version>
+	<description><p>Модуль вывода меню</p></description>
+	<files>
+		<filename module="mod_viewmenu">mod_viewmenu.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_viewmenu.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_viewmenu.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="qty"
+					type="list"
+					default="4"
+					label="MOD_VIEW-MENU_QUANTITY_LABEL"
+					description="MOD_VIEW-MENU_QUANTITY_DESC">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</field>
+				<field
+					name="title_1"
+					type="text"
+					label="MOD_VIEW-MENU_TITLE_1_LABEL"
+					description="MOD_VIEW-MENU_TITLE_DESC" />
+				<field
+					name="link_1"
+					type="text"
+					label="MOD_VIEW-MENU_LINK_1_LABEL"
+					description="MOD_VIEW-MENU_LINK_DESC" />
+				<field
+					name="link_1_text"
+					type="textarea"
+					cols="30"
+					rows="5"
+					label="MOD_VIEW-MENU_TEXT_1_LABEL"
+					description="MOD_VIEW-MENU_TEXT_DESC" />
+				<field 
+					name="img_1" 
+					type="media" 
+					label="MOD_VIEW-MENU_IMG_1_LABEL"
+					description="MOD_VIEW-MENU_IMG_DESC"
+					directory="MenuImg" />
+				<field
+					name="title_2"
+					type="text"
+					label="MOD_VIEW-MENU_TITLE_2_LABEL"
+					description="MOD_VIEW-MENU_TITLE_DESC" />
+				<field
+					name="link_2"
+					type="text"
+					label="MOD_VIEW-MENU_LINK_2_LABEL"
+					description="MOD_VIEW-MENU_LINK_DESC" />
+				<field
+					name="link_2_text"
+					type="textarea"
+					cols="30"
+					rows="5"
+					label="MOD_VIEW-MENU_TEXT_2_LABEL"
+					description="MOD_VIEW-MENU_TEXT_DESC" />
+				<field 
+					name="img_2" 
+					type="media" 
+					label="MOD_VIEW-MENU_IMG_2_LABEL"
+					description="MOD_VIEW-MENU_IMG_DESC"
+					directory="MenuImg" />
+				<field
+					name="title_3"
+					type="text"
+					label="MOD_VIEW-MENU_TITLE_3_LABEL"
+					description="MOD_VIEW-MENU_TITLE_DESC" />
+				<field
+					name="link_3"
+					type="text"
+					label="MOD_VIEW-MENU_LINK_3_LABEL"
+					description="MOD_VIEW-MENU_LINK_DESC" />
+				<field
+					name="link_3_text"
+					type="textarea"
+					cols="30"
+					rows="5"
+					label="MOD_VIEW-MENU_TEXT_3_LABEL"
+					description="MOD_VIEW-MENU_TEXT_DESC" />
+				<field 
+					name="img_3" 
+					type="media" 
+					label="MOD_VIEW-MENU_IMG_3_LABEL"
+					description="MOD_VIEW-MENU_IMG_DESC"
+					directory="MenuImg" />
+				<field
+					name="title_4"
+					type="text"
+					label="MOD_VIEW-MENU_TITLE_4_LABEL"
+					description="MOD_VIEW-MENU_TITLE_DESC" />
+				<field
+					name="link_4"
+					type="text"
+					label="MOD_VIEW-MENU_LINK_4_LABEL"
+					description="MOD_VIEW-MENU_LINK_DESC" />
+				<field
+					name="link_4_text"
+					type="textarea"
+					cols="30"
+					rows="5"
+					label="MOD_VIEW-MENU_TEXT_4_LABEL"
+					description="MOD_VIEW-MENU_TEXT_DESC" />
+				<field 
+					name="img_4" 
+					type="media" 
+					label="MOD_VIEW-MENU_IMG_4_LABEL"
+					description="MOD_VIEW-MENU_IMG_DESC"
+					directory="MenuImg" />
+					
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

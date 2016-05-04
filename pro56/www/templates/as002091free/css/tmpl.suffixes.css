@@ -1,0 +1,173 @@
+
+/*******************************************************************************************/
+/*
+/*		Designed by 'AS Designing'
+/*		Web: http://www.asdesigning.com
+/*		Web: http://www.astemplates.com
+/*		License: GNU/GPL
+/*
+/*******************************************************************************************/
+
+
+.moduletable.border-top
+{
+	padding-top: 70px;
+	border-top: 1px dotted #8496b1;	
+}
+
+.moduletable.border-bottom
+{
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+	border-bottom: 1px dotted #8496b1;	
+}
+
+
+/**************************************************************************************/
+/*	.parallax                                                                         */
+
+
+.parallax 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	overflow: hidden;
+}
+
+.parallax_image 
+{
+	background-size: cover;
+	background-position: 50% 50%;
+	opacity: 1;
+}
+
+.moduletable.parallax_container 
+{
+	margin-bottom: 0;
+	position: static;
+}
+
+
+/**************************************************************************************/
+/*	modules easing                                                                    */
+
+
+.moduletable.fade-in
+{
+    opacity: 0;
+    -webkit-transition: opacity 1s ease-in-out 0s;
+    -moz-transition: opacity 1s ease-in-out 0s;
+    transition: opacity 1s ease-in-out 0s;	
+}
+
+.visible .moduletable.fade-in
+{
+    opacity: 1;
+}
+
+.moduletable.left-to-right
+{
+	-webkit-transform: translate(-2000px, 0);
+	-moz-transform: translate(-2000px, 0);
+	-ms-transform: translate(-2000px, 0);
+	-o-transform: translate(-2000px, 0);
+	transform: translate(-2000px, 0);
+	-webkit-transition: transform 0.7s ease;
+	-moz-transition: transform 0.7s ease;
+	-o-transition: transform 0.7s ease;
+	transition: transform 0.7 ease;
+}
+
+.moduletable.right-to-left
+{
+	-webkit-transform: translate(2000px, 0);
+	-moz-transform: translate(2000px, 0);
+	-ms-transform: translate(2000px, 0);
+	-o-transform: translate(2000px, 0);
+	transform: translate(2000px, 0);
+	-webkit-transition: transform 1s ease 0.3s;
+	-moz-transition: transform 1s ease 0.3s;
+	-o-transition: transform 1s ease 0.3s;
+	transition: transform 1s ease 0.3s;
+}
+
+.visible .moduletable.left-to-right,
+.visible .moduletable.right-to-left
+{
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.easein .item_num3
+{
+	-webkit-transform: translate(-2000px, 100px);
+	-moz-transform: translate(-2000px, 100px);
+	-ms-transform: translate(-2000px, 100px);
+	-o-transform: translate(-2000px, 100px);
+	transform: translate(-2000px, 100px);
+	-webkit-transition: transform 1s;
+	-moz-transition: transform 1s;
+	-o-transition: transform 1s;
+	transition: transform 1s;
+}
+
+.easein .item_num2
+{
+	-webkit-transform: translate(-2000px, -100px);
+	-moz-transform: translate(-2000px, -100px);
+	-ms-transform: translate(-2000px, -100px);
+	-o-transform: translate(-2000px, -100px);
+	transform: translate(-2000px, -100px);
+	-webkit-transition: transform 1s ease 0.3s;
+	-moz-transition: transform 1s ease 0.3s;
+	-o-transition: transform 1s ease 0.3s;
+	transition: transform 1s ease 0.3s;
+}
+
+.easein .item_num1
+{
+	-webkit-transform: translate(-1000px, 100px);
+	-moz-transform: translate(-1000px, 100px);
+	-ms-transform: translate(-1000px, 100px);
+	-o-transform: translate(-1000px, 100px);
+	transform: translate(-1000px, 100px);
+	-webkit-transition: transform 1s ease 0.6s;
+	-moz-transition: transform 1s ease 0.6s;
+	-o-transition: transform 1s ease 0.6s;
+	transition: transform 1s ease 0.6s;
+}
+
+.easein .item_num0
+{
+	-webkit-transform: translate(-1000px, -100px);
+	-moz-transform: translate(-1000px, -100px);
+	-ms-transform: translate(-1000px, -100px);
+	-o-transform: translate(-1000px, -100px);
+	transform: translate(-1000px, -100px);
+	-webkit-transition: transform 1s ease 0.9s;
+	-moz-transition: transform 1s ease 0.9s;
+	-o-transition: transform 1s ease 0.9s;
+	transition: transform 1s ease 0.9s;
+}
+
+.visible .easein .item_num0, 
+.visible .easein .item_num1, 
+.visible .easein .item_num2, 
+.visible .easein .item_num3
+{
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	-o-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+}
+
+
+
